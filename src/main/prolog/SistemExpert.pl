@@ -37,22 +37,16 @@ listeaza_fapte:- fapt(av(Atr,Val),FC,_), write('('),write(Atr),write(','), write
 	             FC1 is integer(FC),write(FC1), nl,fail.
 listeaza_fapte.
 
+% TODO
 lista_float_int([],[]).
-lista_float_int([Regula|Reguli],[Regula1|Reguli1]):-
-	(Regula \== utiliz,
-	Regula1 is integer(Regula);
-	Regula ==utiliz, Regula1=Regula),
-	lista_float_int(Reguli,Reguli1).
+lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1 is integer(Regula);
+                                                      Regula ==utiliz, Regula1=Regula), lista_float_int(Reguli,Reguli1).
 
-pornire :-
-	retractall(interogat(_)),
-	retractall(fapt(_,_,_)),
-	repeat,
-	write('Introduceti una din urmatoarele optiuni: '),
-	nl,nl,
-	write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire) '),
-	nl,nl,write('|: '),citeste_linie([H|T]),
-	executa([H|T]), H == iesire.
+
+% pornire
+% Predicatul principal, aceta va fi apelat din consola prima data.
+pornire:- retractall(interogat(_)), retractall(fapt(_,_,_)), repeat, write('Introduceti una din urmatoarele optiuni: '), nl,nl,
+	       write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire) '), nl,nl,write('|: '),citeste_linie([H|T]), executa([H|T]), H == iesire.
 
 executa([incarca]) :- 
 	incarca,!,nl,
