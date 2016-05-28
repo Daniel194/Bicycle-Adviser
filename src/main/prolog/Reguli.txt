@@ -185,7 +185,6 @@ premisele sunt
 	saboti_frana are valoarea ok,
 atunci problema_bicicleta are valoarea frana_nereglata fc 70.
 
-
 regula nr. 30
 premisele sunt
 	scartait are valoarea fata,

@@ -55,12 +55,14 @@ lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1
 
 % pornire
 % Predicatul principal, aceta va fi apelat din consola prima data.
+% Predicatul curata baza de cunostinte, asteapta un raspuns de la utilizator, pe care il citeste, apoi il executa.
+% Predicatul face acest lucru pana cand se tasteaza optiunea de iesire.
 pornire:- retractall(interogat(_)), retractall(fapt(_,_,_)), repeat, write('Introduceti una din urmatoarele optiuni: '), nl,nl,
 	      write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire) '), nl,nl,write('|: '),citeste_linie([H|T]), executa([H|T]), H == iesire.
 
 
 % executa(+L)
-% Predicatul de mai jos executa optiunea introdusa in predicatul principal.
+% Predicatul de mai jos executa optiunea primita de la predicatul pornire.
 executa([incarca]):- incarca,!,nl, write('Fisierul dorit a fost incarcat'),nl.
 executa([consulta]):- scopuri_princ,!.
 executa([reinitiaza]):- retractall(interogat(_)), retractall(fapt(_,_,_)),!.
@@ -250,27 +252,26 @@ incarca:- write('Nume incorect de fisier! '),nl,fail.
 
 
 % incarca(+F).
-% Predicatul de mai jos incarca fisierul in baza de cunostinte.
+% Predicatul de mai jos curata baza de cunostinte apoi incarca in baza de conostinte regulile sau intrebarile din fisierul F.
 incarca(F):- retractall(interogat(_)),retractall(fapt(_,_,_)), retractall(scop(_)),retractall(interogabil(_,_,_)), retractall(regula(_,_,_)),
 	         see(F),incarca_reguli,seen,!.
 
 
 % incarca_reguli.
-% Predicatul de mai jos incarca regulile.
+% Predicatul de mai jos incarca regulile in baza de cunostinte
 incarca_reguli:- repeat,citeste_propozitie(L), proceseaza(L),L == [end_of_file],nl.
 
 
-% proceseaza(L).
-% TODO
+% proceseaza(+ L).
+% Predicatul de mai jos proceseaza regula L si o incarca in baza de cunostinte procesata prin R.
 proceseaza([end_of_file]):-!.
 proceseaza(L):- trad(R,L,[]),assertz(R), !.
 
 
-% trad(scop(X)).
-% TODO
-trad(scop(X)) --> [scopul,este,X].
-trad(scop(X)) --> [scopul,X].
-trad(interogabil(Atr,M,P)) -->  intreaba,Atr],lista_optiuni(M),afiseaza(Atr,P).
+% trad(-R, + L1, + L2).
+% Predicatul de mai jos converteste regulile, intrebarile si scopurile scrise in limbaj natural in forma corespunzatoare pentru baza de cunostinte.
+trad(scop(X)) --> [scopul,cautat,e,X].
+trad(interogabil(Atr,M,P)) -->  [intreaba,Atr],lista_optiuni(M),afiseaza(Atr,P).
 trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> identificator(N),daca(Daca),atunci(Atunci,F).
 trad('Eroare la parsare'-L,L,_).
 
