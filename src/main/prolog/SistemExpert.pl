@@ -269,27 +269,27 @@ proceseaza(L):- trad(R,L,[]),assertz(R), !.
 
 
 % trad(-R, + L1, + L2).
-% Predicatul de mai jos converteste regulile, intrebarile si scopurile scrise in limbaj natural in forma corespunzatoare pentru baza de cunostinte.
+% Predicatul de mai jos converteste regulile, intrebarile si scopurile scrise in limbaj natural intr-o forma corespunzatoare pentru baza de cunostinte.
 trad(scop(X)) --> [scopul,cautat,e,X].
-trad(interogabil(Atr,M,P)) -->  [intreaba,Atr],lista_optiuni(M),afiseaza(Atr,P).
+trad(interogabil(Atr,M,P)) -->  ['#',Atr],lista_optiuni(M),afiseaza(Atr,P).
 trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> identificator(N),daca(Daca),atunci(Atunci,F).
 trad('Eroare la parsare'-L,L,_).
 
 
-% lista_optiuni(M).
-% TODO
-lista_optiuni(M) --> [optiuni,'('],lista_de_optiuni(M).
+% lista_optiuni(- M).
+% Predicatul de mai jos scoate { din lista de optiuni de la o intrebare.
+lista_optiuni(M) --> ['{'],lista_de_optiuni(M).
 
 
-% lista_de_optiuni([Element|T]).
-% TODO
-lista_de_optiuni([Element]) -->  [Element,')'].
-lista_de_optiuni([Element|T]) --> [Element],lista_de_optiuni(T).
+% lista_de_optiuni(- L).
+% Predicatul de mai jos converteste o lista de optiuni de la o intrebare intr-o lista.
+lista_de_optiuni([Element]) -->  [Element,'}'].
+lista_de_optiuni([Element|T]) --> [Element,','],lista_de_optiuni(T).
 
 
-% afiseaza(P,P).
-% TODO
-afiseaza(_,P) -->  [afiseaza,P].
+% afiseaza(+ Atr,- P).
+% Predicatul de mai jos intoarce intrebarea.
+afiseaza(_,P) -->  ['#','#','#',P].
 afiseaza(P,P) -->  [].
 
 
@@ -413,10 +413,10 @@ citeste_intreg_cuvantul(Lista_Caractere,Caracter1):- get_code(Caracter), (caract
 citeste_cuvant(_,Cuvant,Caracter1):-  get_code(Caracter), citeste_cuvant(Caracter,Cuvant,Caracter1).
 
 
-% caracter_cuvant(C).
-% am specificat codurile ASCII pentru , ; : ? ! . ) (
-% TODO
-caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40]).
+% caracter_cuvant(+ C).
+% Predicatul de mai jos verifica daca C este un caracter special.
+% Am specificat codurile ASCII pentru , ; : ? ! . ) (  # { }
+caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,35,123,125]).
 
 
 % caractere_in_interiorul_unui_cuvant(C)

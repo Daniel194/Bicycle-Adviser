@@ -1,75 +1,77 @@
-scartait
+scopul cautat e problema_bicicleta.
+
+#scartait
 {fata, spate, central, fals}
-'Unde scartaie bicicleta?'
+### 'Unde scartaie bicicleta?'.
 
-roata_spate_descentrata
+#roata_spate_descentrata
 {adevarat, fals}
-'Este roata spate descentrata?'
+### 'Este roata spate descentrata?'.
 
-porneste_bicicleta
+#porneste_bicicleta
 {adevarat, fals}
-'Bicicleta porneste?'
+### 'Bicicleta porneste?'.
 
-tip_frana
+#tip_frana
 {disc, saboti}
-'Ce tip de frana ai?'
+### 'Ce tip de frana ai?'.
 
-saboti_frana
+#saboti_frana
 {uzati, ok}
-'In ce stare sunt sabotii?'
+### 'In ce stare sunt sabotii?'.
 
-disc_frana
+#disc_frana
 {drept, stramb}
-'In ce stare este discul de frana?'
+### 'In ce stare este discul de frana?'.
 
-placute_frana
+#placute_frana
 {uzate, ok}
-'In ce stare sunt placutele de frana?'
+### 'In ce stare sunt placutele de frana?'.
 
-culoare_lant
+#culoare_lant
 {ruginiu, argintiu}
-'Ce culoare are lantul?'
+### 'Ce culoare are lantul?'.
 
-aspect_pinioane
+#aspect_pinioane
 {degradat, ok}
-'Ce aspect au pinioanele?'
+### 'Ce aspect au pinioanele?'.
 
-pedeale
+#pedeale
 {degradate, ok}
-'Ce aspect au pedalele?'
+### 'Ce aspect au pedalele?'.
 
-joc_brate
+#joc_brate
 {adevarat, fals}
-'Bratele pedaliere au joc?'
+### 'Bratele pedaliere au joc?'.
 
-foi_uzate
+#foi_uzate
 {adevarat, fals}
-'Sunt foile uzate?'
+### 'Sunt foile uzate?'.
 
-tip_de_sa
+#tip_de_sa
 {pe_arcuri, fixa}
-'Ce tip de sa ai?'
+### 'Ce tip de sa ai?'.
 
-roata_fata_descentrata
+#roata_fata_descentrata
 {adevarat, fals}
-'Este fata descentrata?'
+### 'Este fata descentrata?'.
 
-tip_furca
+#tip_furca
 {pe_arc, hidraulica}
-'Ce tip de furca ai?'
+### 'Ce tip de furca ai?'.
 
-brate_furca
+#brate_furca
 {curate, murdare}
-'In ce stare sunt bratele furcii?'
+### 'In ce stare sunt bratele furcii?'.
 
-ultima_servisare_furca
+#ultima_servisare_furca
 {sub_1an, peste_1an}
-'Acum cat timp a fost servisata furca?'
+### 'Acum cat timp a fost servisata furca?'.
 
-stare_ghidon
+#stare_ghidon
 {stramb, drept}
-'In ce stare este ghidonul?'
+### 'In ce stare este ghidonul?'.
 
-suruburi_ghidon
+#suruburi_ghidon
 {stranse, nestranse}
-'Cum sunt suruburile ghidonului?'
+### 'Cum sunt suruburile ghidonului?'.
