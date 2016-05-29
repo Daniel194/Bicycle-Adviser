@@ -20,7 +20,7 @@
 :-dynamic regula/3.
 
 
-% TODO
+% Specifica faptul ca predicatul citeste_cuvant nu se afla grupa in fisier.
 :-discontiguous citeste_cuvant/3.
 
 
@@ -265,7 +265,7 @@ incarca_reguli:- repeat,citeste_propozitie(L), proceseaza(L),L == [end_of_file],
 % proceseaza(+ L).
 % Predicatul de mai jos proceseaza regula L si o incarca in baza de cunostinte procesata prin R.
 proceseaza([end_of_file]):-!.
-proceseaza(L):- trad(R,L,[]),assertz(R), !.
+proceseaza(L):- write(L),nl, trad(R,L,[]),write(R),nl,assertz(R), !.
 
 
 % trad(-R, + L1, + L2).
@@ -293,9 +293,9 @@ afiseaza(_,P) -->  ['#','#','#',P].
 afiseaza(P,P) -->  [].
 
 
-% identificator(N).
-% TODO
-identificator(N) --> [regula,N].
+% identificator(- N).
+% Predicatul de mai jos intoarce prin N numarul regulii.
+identificator(N) --> [regula,nr,N].
 
 
 % daca(Daca).
@@ -336,38 +336,39 @@ rest_cuvinte_linie(Car,[]):- (Car==13;Car==10), !.
 rest_cuvinte_linie(Car,[Cuv1|Lista_cuv]):- citeste_cuvant(Car,Cuv1,Car1),rest_cuvinte_linie(Car1,Lista_cuv).
 
 
-% citeste_propozitie([Cuv|Lista_cuv]).
-% TODO
+% citeste_propozitie(-L).
+% Predicatul de mai jos citeste o propozitie si o intoarce prin L.
 citeste_propozitie([Cuv|Lista_cuv]):- get_code(Car),citeste_cuvant(Car, Cuv, Car1), rest_cuvinte_propozitie(Car1, Lista_cuv).
 
 
-% rest_cuvinte_propozitie(Car,[])
-% TODO
-rest_cuvinte_propozitie(-1, []):- !.    
+% rest_cuvinte_propozitie(+Car,-L)
+% Predicatul de mai jos returneaza restul cuvintelor din propozitie.
+rest_cuvinte_propozitie(-1, []):- !.
 rest_cuvinte_propozitie(Car,[]):- Car==46, !.
-rest_cuvinte_propozitie(Car,[Cuv1|Lista_cuv]):- citeste_cuvant(Car,Cuv1,Car1), rest_cuvinte_propozitie(Car1,Lista_cuv).
+rest_cuvinte_propozitie(Car,[Cuv1|Lista_cuv]):- citeste_cuvant(Car,Cuv1,Car1), (Cuv1 \== nr, Car2 = Car1; Cuv1 == nr, get_code(Car2)),
+                                                rest_cuvinte_propozitie(Car2,Lista_cuv).
 
 
-% citeste_cuvant(Caracter,Cuvant,Caracter1)
-% TODO
+% citeste_cuvant(+ Caracter,- Cuvant,- Caracter1)
+% Predicatul de mai jos citeste un cuvatn de tip caracter special sau numar.
 citeste_cuvant(-1,end_of_file,-1):- !.
 citeste_cuvant(Caracter,Cuvant,Caracter1):- caracter_cuvant(Caracter),!, name(Cuvant, [Caracter]),get_code(Caracter1).
 citeste_cuvant(Caracter, Numar, Caracter1):- caracter_numar(Caracter),!, citeste_tot_numarul(Caracter, Numar, Caracter1).
 
 
-% citeste_tot_numarul(Caracter,Numar,Caracter1).
-% TODO
+% citeste_tot_numarul(+ Caracter,- Numar,- Caracter1).
+% Predicatul de mai jos citeste tot numarul din fisier.
 citeste_tot_numarul(Caracter,Numar,Caracter1):- determina_lista(Lista1,Caracter1), append([Caracter],Lista1,Lista), transforma_lista_numar(Lista,Numar).
 
 
-% determina_lista(Lista,Caracter1).
-% TODO
+% determina_lista(- Lista,- Caracter1).
+% Predicatul de mai jos intoarce o lista formata din numere.
 determina_lista(Lista,Caracter1):- get_code(Caracter),(caracter_numar(Caracter), determina_lista(Lista1,Caracter1), append([Caracter],Lista1,Lista);
 	                               \+(caracter_numar(Caracter)), Lista=[],Caracter1=Caracter).
 
 
-% transforma_lista_numar([H|T],N).
-% TODO
+% transforma_lista_numar(+ L,- N).
+% Predicatul de mai jos transofram lista L in numarul N.
 transforma_lista_numar([],0).
 transforma_lista_numar([H|T],N):- transforma_lista_numar(T,NN), lungime(T,L), Aux is 10**L, HH is H-48,N is HH*Aux+NN.
 
@@ -378,29 +379,29 @@ lungime([],0).
 lungime([_|T],L):- lungime(T,L1), L is L1+1.
 
 
-% citeste_cuvant(Caracter,Cuvant,Caracter1).
-% 39 este codul ASCII pt '
-% TODO
+% citeste_cuvant(+ Caracter,- Cuvant,- Caracter1).
+% Predicatul de mai jos grupeaza o propozite afla intre apostrofe (39 este codul ASCII pt ' ) intr-un singur cuvant.
 citeste_cuvant(Caracter,Cuvant,Caracter1):- Caracter==39,!, pana_la_urmatorul_apostrof(Lista_caractere),
 	                                        L=[Caracter|Lista_caractere], name(Cuvant, L),get_code(Caracter1).
 
 
-% pana_la_urmatorul_apostrof(Lista_caractere)
-% TODO
+% pana_la_urmatorul_apostrof(- Lista_caractere)
+% Predicatul de mai jos intoarce toata propozitia pana la urmatorul apostrofe
 pana_la_urmatorul_apostrof(Lista_caractere):- get_code(Caracter), (Caracter == 39,Lista_caractere=[Caracter];
 	                                          Caracter\==39, pana_la_urmatorul_apostrof(Lista_caractere1), Lista_caractere=[Caracter|Lista_caractere1]).
 
 
-% citeste_cuvant(Caracter,Cuvant,Caracter1)
-% TODO
+% citeste_cuvant(+ Caracter,- Cuvant,- Caracter1)
+% Predicatul de mai jos citste un cuvant. Prima data verifica daca caracterul este litera mare sau mica, numar sau caracterele - _
+% daca este litera mare il converteste in litera mica.
 citeste_cuvant(Caracter,Cuvant,Caracter1):- caractere_in_interiorul_unui_cuvant(Caracter),!,  ((Caracter>64,Caracter<91),!,
 	                                        Caracter_modificat is Caracter+32;
 	                                        Caracter_modificat is Caracter), citeste_intreg_cuvantul(Caractere,Caracter1),
 	                                        name(Cuvant,[Caracter_modificat|Caractere]).
 
 
-% citeste_intreg_cuvantul(Lista_Caractere,Caracter1).
-% TODO
+% citeste_intreg_cuvantul(- Lista_Caractere,- Caracter1).
+% Predicatul de mai jos intoarce tot cuvantal printr-o lista.
 citeste_intreg_cuvantul(Lista_Caractere,Caracter1):- get_code(Caracter), (caractere_in_interiorul_unui_cuvant(Caracter),
 	                                                 ((Caracter>64,Caracter<91),!, Caracter_modificat is Caracter+32; Caracter_modificat is Caracter),
 	                                                 citeste_intreg_cuvantul(Lista_Caractere1, Caracter1),
@@ -408,8 +409,8 @@ citeste_intreg_cuvantul(Lista_Caractere,Caracter1):- get_code(Caracter), (caract
 	                                                 \+(caractere_in_interiorul_unui_cuvant(Caracter)), Lista_Caractere=[], Caracter1=Caracter).
 
 
-% citeste_cuvant(_,Cuvant,Caracter1).
-% TODO
+% citeste_cuvant(+ Caracter,- Cuvant,- Caracter1).
+% Predicatul de mai jos citeste un cuvant indiferent de caracterul primit.
 citeste_cuvant(_,Cuvant,Caracter1):-  get_code(Caracter), citeste_cuvant(Caracter,Cuvant,Caracter1).
 
 
@@ -419,8 +420,8 @@ citeste_cuvant(_,Cuvant,Caracter1):-  get_code(Caracter), citeste_cuvant(Caracte
 caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,35,123,125]).
 
 
-% caractere_in_interiorul_unui_cuvant(C)
-% TODO
+% caractere_in_interiorul_unui_cuvant(+ C)
+% Predicatul de mai jos verifica daca C este o litera mare sau mica, un numar sau caracterele - sau _
 caractere_in_interiorul_unui_cuvant(C):- C>64,C<91;C>47,C<58; C==45;C==95;C>96,C<123.
 
 % caracter_numar(+ C).

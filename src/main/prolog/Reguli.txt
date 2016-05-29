@@ -1,5 +1,3 @@
-scopul cautat e problema_bicicleta.
-
 regula nr. 1
 premisele sunt
 	scartait are valoarea spate,
