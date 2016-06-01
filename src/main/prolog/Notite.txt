@@ -504,6 +504,8 @@ caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40]).
 				Daca are urechi mari si poate vorbi (in limbaj uman) si nu are trompa(putea fi si elefantelul Dumbo daca avea trompa)
 				si are coada atunci personajul este Mickey Mouse cu factor certitudine 75.
 
+                Noi:
+
 				regula nr. 4
 				premisele sunt
 				    dimensiune_urechi are valoarea mari,
@@ -512,3 +514,12 @@ caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40]).
                     are_coada este adevarat,
 				atunci nume_personaj are valoarea 'Mickey Mouse' cu fc 75.
 
+				Profa:
+
+				regula 4
+                daca
+                     dimensiune_urechi este mari si
+                     limbaj_uman si
+                     not are_trompa si
+                     are_coada
+                atunci nume_personaj este 'Mickey Mouse' fc 75.

@@ -265,7 +265,7 @@ incarca_reguli:- repeat,citeste_propozitie(L), proceseaza(L),L == [end_of_file],
 % proceseaza(+ L).
 % Predicatul de mai jos proceseaza regula L si o incarca in baza de cunostinte procesata prin R.
 proceseaza([end_of_file]):-!.
-proceseaza(L):- write(L),nl, trad(R,L,[]),write(R),nl,assertz(R), !.
+proceseaza(L):- trad(R,L,[]), assertz(R), !.
 
 
 % trad(-R, + L1, + L2).
@@ -298,29 +298,29 @@ afiseaza(P,P) -->  [].
 identificator(N) --> [regula,nr,N].
 
 
-% daca(Daca).
-% TODO
-daca(Daca) --> [daca],lista_premise(Daca).
+% daca(- Daca).
+% Predicatul de mai jos scoate cuvintele 'premisele sunt' din lista de premise.
+daca(Daca) --> [premisele, sunt],lista_premise(Daca).
 
 
-% lista_premise([Prima|Celalalte])
-% TODO
-lista_premise([Daca]) --> propoz(Daca),[atunci].
+% lista_premise(- L)
+% Predicatul de mai jos intoarce lista de premise L.
+lista_premise([Daca]) --> propoz(Daca),[',',atunci].
 lista_premise([Prima|Celalalte]) --> propoz(Prima),[si],lista_premise(Celalalte).
 lista_premise([Prima|Celalalte]) --> propoz(Prima),[','],lista_premise(Celalalte).
 
 
-% atunci(Atunci,FC).
-% TODO
-atunci(Atunci,FC) --> propoz(Atunci),[fc],[FC].
+% atunci(- Atunci,- FC).
+% Predicatul de mai jos intoarce concuziile si factorul de certitudine pentru concluzia respectiva.
+atunci(Atunci,FC) --> propoz(Atunci),[cu, fc],[FC].
 atunci(Atunci,100) --> propoz(Atunci).
 
 
 % propoz(not av(Atr,da))
-% TODO
-propoz(not av(Atr,da)) --> [not,Atr].
-propoz(av(Atr,Val)) --> [Atr,este,Val].
-propoz(av(Atr,da)) --> [Atr].
+% Predicatul de mai jos paraseaza premisele/concluziile scrise in limbaj natural in forma corespunzatoare pentru baza de cunostinte.
+propoz(not av(Atr,da)) --> [Atr, nu, este, adevarat].
+propoz(av(Atr,Val)) --> [Atr, are, valoarea, Val].
+propoz(av(Atr,da)) --> [Atr, este, adevarat].
 
 
 % citeste_linie([Cuv|Lista_cuv]).
