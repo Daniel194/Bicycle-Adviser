@@ -497,3 +497,18 @@ VEZI SI CE CARACTERE SPECIALE MAI AI INAFARA DE ALEA:
 caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40]).
 
 % am specificat codurile ASCII pentru , ; : ? ! . ) (
+
+
+
+
+				Daca are urechi mari si poate vorbi (in limbaj uman) si nu are trompa(putea fi si elefantelul Dumbo daca avea trompa)
+				si are coada atunci personajul este Mickey Mouse cu factor certitudine 75.
+
+				regula nr. 4
+				premisele sunt
+				    dimensiune_urechi are valoarea mari,
+                    limbaj_uman este adevarat,
+                    are_trompa nu este adevarat,
+                    are_coada este adevarat,
+				atunci nume_personaj are valoarea 'Mickey Mouse' cu fc 75.
+

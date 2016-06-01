@@ -7,14 +7,14 @@ atunci problema_spate are valoarea adevarat.
 regula nr. 2
 premisele sunt
 	problema_spate este adevarat,
-	porneste_bicicleta este fals,
+	porneste_bicicleta nu este adevarat,
 atunci problema_roata_spate are valoarea adevarat.
 
 regula nr. 3
 premisele sunt
-	problema_roata_spate adevarat,
-	tip_frana este saboti
+	tip_frana are valoarea saboti,
 	saboti_frana are valoarea ok,
+	problema_roata_spate este adevarat,
 atunci problema_bicicleta are valoarea frana_nereglata fc 70.
 
 regula nr. 4
@@ -26,14 +26,14 @@ atunci problema_spate are valoarea adevarat.
 regula nr. 5
 premisele sunt
 	problema_spate este adevarat,
-	porneste_bicicleta este fals,
+	porneste_bicicleta nu este adevarat,
 atunci problema_roata_spate are valoarea adevarat.
 
 regula nr. 6
 premisele sunt
-	problema_roata_spate adevarat,
-	tip_frana este disc
-	disc_frana are valoarea drept
+	tip_frana are valoarea disc,
+	disc_frana are valoarea drept,
+	problema_roata_spate este adevarat,
 atunci problema_bicicleta are valoarea placute_frana_uzate fc 70.
 
 regula nr. 7
@@ -45,75 +45,75 @@ atunci problema_spate are valoarea adevarat.
 regula nr. 8
 premisele sunt
 	problema_spate este adevarat,
-	porneste_bicicleta este fals,
+	porneste_bicicleta nu este adevarat,
 atunci problema_roata_spate are valoarea adevarat.
 
 regula nr. 9
 premisele sunt
-	problema_roata_spate adevarat,
-	tip_frana este disc,
+	tip_frana are valoarea disc,
 	placute_frana are valoarea ok,
 	disc_frana are valoarea stramb,
+	problema_roata_spate este adevarat,
 atunci problema_bicicleta are valoarea disc_frana_stramb fc 75.
 
 regula nr. 10
 premisele sunt
 	scartait are valoarea spate,
-	culoare_lant este ruginiu,
+	culoare_lant are valoarea ruginiu,
 atunci problema_bicicleta are valoarea lant_uzat fc 50.
 
 regula nr. 11
 premisele sunt
 	scartait are valoarea spate,
-	culoare_lant este argintiu,
-atunci problema_spate este adevarat.
+	culoare_lant are valoarea argintiu,
+atunci problema_spate are valoarea adevarat.
 
 regula nr. 12
 premisele sunt
 	problema_spate este adevarat,
-	roata_spate_descentrata este fals,
-atunci problema_roata_spate este adevarat.
+	roata_spate_descentrata nu este adevarat,
+atunci problema_roata_spate are valoarea adevarat.
 
 regula nr. 13
 premisele sunt
-	problema_roata_spate adevarat,
-	aspect_pinioane este degradat,
+	aspect_pinioane are valoarea degradat,
+	problema_roata_spate este adevarat,
 atunci problema_bicicleta are valoarea pinioane_uzate fc 50.
 
 regula nr. 14
 premisele sunt
 	scartait are valoarea central,
-	culoare_lant este argintiu,
-	aspect_pinioane este ok,
-atunci problema_central este adevarat.
+	culoare_lant are valoarea argintiu,
+	aspect_pinioane are valoarea ok,
+atunci problema_central are valoarea adevarat.
 
 regula nr. 15
 premisele sunt
-	problema_central este adevarat,
 	pedeale are valoarea ok,
-	joc_brate are valoarea fals,
+	problema_central este adevarat,
+	joc_brate nu este adevarat,
 atunci problema_bicicleta are valoarea foi_uzate fc 20.
 
 regula nr. 16
 premisele sunt
+	culoare_lant are valoarea argintiu,
+	aspect_pinioane are valoarea ok,
 	problema_spate este adevarat,
-	culoare_lant este argintiu,
-	aspect_pinioane este ok,
-	foi_uzate este fals,
+	foi_uzate nu este adevarat,
 atunci problema_bicicleta are valoarea deraior_uzat fc 40.
 
 regula nr. 17
 premisele sunt
+	culoare_lant are valoarea argintiu,
+	aspect_pinioane are valoarea ok,
 	problema_spate este adevarat,
-	culoare_lant este argintiu,
-	aspect_pinioane este ok,
-	foi_uzate este fals,
+	foi_uzate nu este adevarat,
 atunci problema_bicicleta are valoarea ureche_stramba fc 30.
 
 regula nr. 18
 premisele sunt
 	scartait are valoarea central,
-	foi_uzate este fals,
+	foi_uzate nu este adevarat,
 atunci problema_central are valoarea adevarat.
 
 regula nr. 19
@@ -124,14 +124,14 @@ atunci problema_sa are valoarea adevarat.
 
 regula nr. 20
 premisele sunt
-	problema_sa adevarat,
-	tip_de_sa este pe_arcuri,
+	tip_de_sa are valoarea pe_arcuri,
+	problema_sa este adevarat,
 atunci problema_bicicleta are valoarea arcuri_sa_defecte fc 70.
 
 regula nr. 21
 premisele sunt
 	scartait are valoarea central,
-	foi_uzate este fals,
+	foi_uzate nu este adevarat,
 atunci problema_central are valoarea adevarat.
 
 regula nr. 22
@@ -142,14 +142,14 @@ atunci problema_sa are valoarea adevarat.
 
 regula nr. 23
 premisele sunt
-	problema_sa adevarat,
-	tip_de_sa este fixa,
+	problema_sa este adevarat,
+	tip_de_sa are valoarea fixa,
 atunci problema_bicicleta are valoarea tija_sa_uscata fc 70.
 
 regula nr. 24
 premisele sunt
 	scartait are valoarea central,
-	foi_uzate este fals,
+	foi_uzate nu este adevarat,
 atunci problema_central are valoarea adevarat.
 
 regula nr. 25
@@ -160,8 +160,8 @@ atunci problema_sa are valoarea adevarat.
 
 regula nr. 26
 premisele sunt
-	problema_sa adevarat,
-	tip_de_sa este fixa,
+	problema_sa este adevarat,
+	tip_de_sa are valoarea fixa,
 atunci problem_sa are valoarea sa_nestransa fc 50.
 
 regula nr. 27
@@ -173,14 +173,14 @@ atunci problema_fata are valoarea adevarat.
 regula nr. 28
 premisele sunt
 	problema_fata este adevarat,
-	porneste_bicicleta este fals,
+	porneste_bicicleta nu este adevarat,
 atunci problema_roata_fata are valoarea adevarat.
 
 regula nr. 29
 premisele sunt
-	problema_roata_fata adevarat,
-	tip_frana este saboti
+	tip_frana are valoarea saboti,
 	saboti_frana are valoarea ok,
+	problema_roata_fata este adevarat,
 atunci problema_bicicleta are valoarea frana_nereglata fc 70.
 
 regula nr. 30
@@ -192,14 +192,14 @@ atunci problema_fata are valoarea adevarat.
 regula nr. 31
 premisele sunt
 	problema_fata este adevarat,
-	porneste_bicicleta este fals,
+	porneste_bicicleta nu este adevarat,
 atunci problema_roata_fata are valoarea adevarat.
 
 regula nr. 32
 premisele sunt
-	problema_roata_fata adevarat,
-	tip_frana este disc
-	disc_frana are valoarea drept
+	tip_frana este are valoarea disc,
+	disc_frana are valoarea drept,
+	problema_roata_fata este adevarat,
 atunci problema_bicicleta are valoarea placute_frana_uzate fc 70.
 
 regula nr. 33
@@ -211,15 +211,15 @@ atunci problema_fata are valoarea adevarat.
 regula nr. 34
 premisele sunt
 	problema_fata este adevarat,
-	porneste_bicicleta este fals,
+	porneste_bicicleta nu este adevarat,
 atunci problema_roata_fata are valoarea adevarat.
 
 regula nr. 35
 premisele sunt
-	problema_roata_fata adevarat,
-	tip_frana este disc,
+	tip_frana are valoarea disc,
 	placute_frana are valoarea ok,
 	disc_frana are valoarea stramb,
+	problema_roata_fata este adevarat,
 atunci problema_bicicleta are valoarea disc_frana_stramb fc 75.
 
 regula nr. 36
@@ -229,9 +229,9 @@ atunci problema_fata are valoarea adevarat.
 
 regula nr. 37
 premisele sunt
-	problema_fata are valoarea adevarat,
-	roata_fata_descentrata este fals,
 	tip_furca are valoarea pe_arc,
+	problema_fata este adevarat,
+	roata_fata_descentrata nu este adevarat,
 atunci problema_furca are valoarea adevarat.
 
 regula nr. 38
@@ -247,9 +247,9 @@ atunci problema_fata are valoarea adevarat.
 
 regula nr. 40
 premisele sunt
-	problema_fata are valoarea adevarat,
-	roata_fata_descentrata este fals,
 	tip_furca are valoarea pe_arc,
+	problema_fata este adevarat,
+	roata_fata_descentrata nu este adevarat,
 atunci problema_furca are valoarea adevarat.
 
 regula nr. 41
@@ -266,9 +266,9 @@ atunci problema_fata are valoarea adevarat.
 
 regula nr. 43
 premisele sunt
-	problema_fata are valoarea adevarat,
-	roata_fata_descentrata este fals,
 	tip_furca are valoarea pe_arc,
+	problema_fata este adevarat,
+	roata_fata_descentrata nu este adevarat,
 atunci problema_furca are valoarea adevarat.
 
 regula nr. 44
@@ -278,7 +278,7 @@ atunci problema_fata are valoarea adevarat.
 
 regula nr. 45
 premisele sunt
-	problema_fata are valoarea adevarat,
+	problema_fata este adevarat,
 	stare_ghidon are valoarea stramb,
 atunci problema_bicicleta are valoarea ghidon_defect fc 70.
 
@@ -289,14 +289,14 @@ atunci problema_fata are valoarea adevarat.
 
 regula nr. 47
 premisele sunt
-	problema_fata are valaorea adevarat,
+	problema_fata este adevarat,
 	stare_ghidon are valoarea drept,
 atunci problema_ghidon are valoarea adevarat.
 
 regula nr. 48
 premisele sunt
-	problema_ghidon are valoarea adevarat.
 	suruburi_ghidon are valoarea nestrans,
+	problema_ghidon este adevarat,
 atunci problema_bicicleta are valoarea suruburi_bicicleta_nestranse fc 77.
 
 regula nr. 49
@@ -306,12 +306,12 @@ atunci problema_fata are valoarea adevarat.
 
 regula nr. 50
 premisele sunt
-	problema_fata are valaorea adevarat,
 	stare_ghidon are valoarea drept,
+	problema_fata este adevarat,
 atunci problema_ghidon are valoarea adevarat.
 
 regula nr. 51
 premisele sunt
-	problema_ghidon are valoarea adevarat.
+	problema_ghidon este adevarat,
 	suruburi_ghidon are valoarea stranse,
 atunci problema_bicicleta are valoarea NU_POT_DETERMINA fc 100.
