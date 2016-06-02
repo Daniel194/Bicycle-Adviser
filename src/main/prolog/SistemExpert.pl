@@ -58,7 +58,8 @@ lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1
 % Predicatul curata baza de cunostinte, asteapta un raspuns de la utilizator, pe care il citeste, apoi il executa.
 % Predicatul face acest lucru pana cand se tasteaza optiunea de iesire.
 pornire:- retractall(interogat(_)), retractall(fapt(_,_,_)), repeat, write('Introduceti una din urmatoarele optiuni: '), nl,nl,
-	      write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum   Iesire) '), nl,nl,write('|: '),citeste_linie([H|T]), executa([H|T]), H == iesire.
+	      write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum  Sterge  Iesire) '), nl,nl,write('|: '),citeste_linie([H|T]),
+	      executa([H|T]), H == iesire.
 
 
 % executa(+L)
@@ -67,7 +68,8 @@ executa([incarca]):- incarca,!,nl, write('Fisierul dorit a fost incarcat'),nl.
 executa([consulta]):- scopuri_princ,!.
 executa([reinitiaza]):- retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 executa([afisare_fapte]):- afiseaza_fapte,!.
-executa([cum|L]) :- cum(L),!.
+executa([cum|L]):- cum(L),!.
+executa([sterge]):- retractall(interogat(_)),retractall(fapt(_,_,_)), retractall(scop(_)),retractall(interogabil(_,_,_)), retractall(regula(_,_,_)), !.
 executa([iesire]):-!.
 executa([_|_]):- write('Comanda incorecta! '),nl.
 
@@ -253,8 +255,7 @@ incarca:- write('Nume incorect de fisier! '),nl,fail.
 
 % incarca(+F).
 % Predicatul de mai jos curata baza de cunostinte apoi incarca in baza de conostinte regulile sau intrebarile din fisierul F.
-incarca(F):- retractall(interogat(_)),retractall(fapt(_,_,_)), retractall(scop(_)),retractall(interogabil(_,_,_)), retractall(regula(_,_,_)),
-	         see(F),incarca_reguli,seen,!.
+incarca(F):- see(F),incarca_reguli,seen,!.
 
 
 % incarca_reguli.
