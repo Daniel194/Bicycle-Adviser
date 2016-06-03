@@ -18,6 +18,7 @@
 :-dynamic scop/1.
 :-dynamic interogabil/3.
 :-dynamic regula/3.
+:-dynamic are_solutii/0.
 
 
 % Specifica faptul ca predicatul citeste_cuvant nu se afla grupa in fisier.
@@ -57,7 +58,7 @@ lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1
 % Predicatul principal, aceta va fi apelat din consola prima data.
 % Predicatul curata baza de cunostinte, asteapta un raspuns de la utilizator, pe care il citeste, apoi il executa.
 % Predicatul face acest lucru pana cand se tasteaza optiunea de iesire.
-pornire:- retractall(interogat(_)), retractall(fapt(_,_,_)), repeat, write('Introduceti una din urmatoarele optiuni: '), nl,nl,
+pornire:- retractall(interogat(_)), retractall(fapt(_,_,_)), retractall(are_solutii), repeat, write('Introduceti una din urmatoarele optiuni: '), nl,nl,
 	      write(' (Incarca Consulta Reinitiaza  Afisare_fapte  Cum  Sterge  Iesire) '), nl,nl,write('|: '),citeste_linie([H|T]),
 	      executa([H|T]), H == iesire.
 
@@ -66,10 +67,11 @@ pornire:- retractall(interogat(_)), retractall(fapt(_,_,_)), repeat, write('Intr
 % Predicatul de mai jos executa optiunea primita de la predicatul pornire.
 executa([incarca]):- incarca,!,nl, write('Fisierul dorit a fost incarcat'),nl.
 executa([consulta]):- scopuri_princ,!.
-executa([reinitiaza]):- retractall(interogat(_)), retractall(fapt(_,_,_)),!.
+executa([reinitiaza]):- retractall(interogat(_)), retractall(fapt(_,_,_)), retractall(are_solutii), !.
 executa([afisare_fapte]):- afiseaza_fapte,!.
 executa([cum|L]):- cum(L),!.
-executa([sterge]):- retractall(interogat(_)),retractall(fapt(_,_,_)), retractall(scop(_)),retractall(interogabil(_,_,_)), retractall(regula(_,_,_)), !.
+executa([sterge]):- retractall(interogat(_)),retractall(fapt(_,_,_)), retractall(scop(_)),retractall(interogabil(_,_,_)),
+                    retractall(are_solutii), retractall(regula(_,_,_)), !.
 executa([iesire]):-!.
 executa([_|_]):- write('Comanda incorecta! '),nl.
 
@@ -77,6 +79,7 @@ executa([_|_]):- write('Comanda incorecta! '),nl.
 % scopuri_prin.
 % Predicatul de mai jos determina si afiseaza scopurile principale.
 scopuri_princ:- scop(Atr),determina(Atr), afiseaza_scop(Atr),fail.
+scopuri_princ:- \+ are_solutii, write('Nu exista solutii !'), nl.
 scopuri_princ.
 
 
@@ -88,7 +91,7 @@ determina(_).
 
 % afiseaza_scop(+Atr).
 % Predicatul de mai jos afiseaza scopul.
-afiseaza_scop(Atr) :- nl,fapt(av(Atr,Val),FC,_), FC >= 20,scrie_scop(av(Atr,Val),FC), nl,fail.
+afiseaza_scop(Atr) :- nl,fapt(av(Atr,Val),FC,_), FC >= 20,scrie_scop(av(Atr,Val),FC), assert(are_solutii), nl,fail.
 afiseaza_scop(_):- nl,nl.
 
 
