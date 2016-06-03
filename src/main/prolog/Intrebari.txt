@@ -11,3 +11,15 @@ scopul cautat e problema_bicicleta.
 #pinioane
 {uzate, ok}
 ### 'Ce aspect au pinioanele?'.
+
+#spite
+{indoite, drepte}
+### 'Cum sunt spitele?'.
+
+#cauciuc
+{tocit, ok}
+### 'In ce stare este cauciucul?'.
+
+#deraior
+{stramb, drept}
+### 'In ce stare este deraiorul tau?'.

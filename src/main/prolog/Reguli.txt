@@ -1,22 +1,22 @@
 regula nr. 1
 premisele sunt
 	scartait are valoarea spate,
-atunci loc_scartait are valoarea spate cu fc 90.
+atunci loc_scartait are valoarea spate.
 
 regula nr. 2
 premisele sunt
 	scartait are valoarea central,
-atunci loc_scartait are valoarea central cu fc 90.
+atunci loc_scartait are valoarea central.
 
 regula nr. 3
 premisele sunt
 	scartait are valoarea fata,
-atunci loc_scartait are valoarea fata cu fc 90.
+atunci loc_scartait are valoarea fata.
 
 regula nr. 4
 premisele sunt
 	scartait are valoarea fals,
-atunci loc_scartait are valoarea fals cu fc 90.
+atunci loc_scartait are valoarea fals.
 
 regula nr. 5
 premisele sunt
@@ -28,10 +28,31 @@ regula nr. 6
 premisele sunt
 	problema_roata_spate este adevarat,
 	pinioane are valoarea uzate,
-atunci problema_bicicleta are valoarea 'Verifica pinioane!' cu fc 75.
+atunci problema_bicicleta are valoarea 'Verifica pinioane!' cu fc 80.
 
 regula nr. 7
 premisele sunt
 	problema_roata_spate este adevarat,
 	pinioane are valoarea uzate,
-atunci problema_bicicleta are valoarea 'Verifica rulmenti!' cu fc 70.
+atunci problema_bicicleta are valoarea 'Verifica rulmenti!' cu fc 75.
+
+regula nr. 8
+premisele sunt
+	problema_roata_spate este adevarat,
+	spite are valoarea indoite,
+atunci problema_bicicleta are valoarea 'Spitele tale sunt indoite, si se pot rupe, verifica-le!' cu fc 90.
+
+regula nr. 9
+premisele sunt
+	problema_roata_spate este adevarat,
+	spite are valoarea drepte,
+	cauciuc are valoarea tocit,
+atunci problema_bicicleta are valoarea 'Cauciucul trebuie schimbat, este prea tocit!' cu fc 80.
+
+regula nr. 10
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea stramb,
+	spite are valoarea drepte,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Deraiorul tau este stramb, trebuie indreptat!' cu fc 80.
