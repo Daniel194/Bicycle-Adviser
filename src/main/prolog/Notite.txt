@@ -21,3 +21,7 @@
                      not are_trompa si
                      are_coada
                 atunci nume_personaj este 'Mickey Mouse' fc 75.
+
+Interogare Cum Exemplu : Cum problema_bicicleta este 'Verifica pinioane !'.
+
+Factor de probabilitate la intrebari: tocit fc 80.

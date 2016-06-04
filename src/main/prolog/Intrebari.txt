@@ -12,14 +12,138 @@ scopul cautat e problema_bicicleta.
 {uzate, ok}
 ### 'Ce aspect au pinioanele?'.
 
-#spite
-{indoite, drepte}
-### 'Cum sunt spitele?'.
-
 #cauciuc
 {tocit, ok}
 ### 'In ce stare este cauciucul?'.
 
+#camera
+{ok, sparta}
+### 'In ce stare este camera ta?'.
+
+#spite
+{indoite, drepte}
+### 'Cum sunt spitele?'.
+
 #deraior
 {stramb, drept}
 ### 'In ce stare este deraiorul tau?'.
+
+#ureche_deraior
+{stramba, dreapta}
+### 'Este stramba urechea deraiorului?'.
+
+#lant
+{curat, murdar, ruginit, intins}
+### 'Ce aspect are lantul tau?'.
+
+#tip_frana
+{disc, saboti}
+### 'Ce tip de frana ai?'.
+
+#frana_saboti_centrat
+{adevarat, fals}
+### 'Este frana centrata?'.
+
+#frana_saboti_tociti
+{adevarat, fals}
+### 'Sunt sabotii tai tociti?'.
+
+#frana_disc_stramb
+{adevarat, fals}
+### 'Este discul tau de frana stramb?'.
+
+#frana_disc_placute
+{adevarat, fals}
+### 'Sunt placutele tale de frana uzate?'.
+
+#tip_sa
+{fixa, pe_arcuri}
+### 'Ce tip de sa ai?'.
+
+#tija_sa
+{unsa, uscata}
+### 'In ce stare este saua ta?'.
+
+#foaie
+{uzata, ok}
+### 'In ce stare este foaia ta?'.
+
+#cadru
+{fisurat, ok}
+### 'In ce stare este cadrul tau?'.
+
+#verificat_butuc
+{adevarat, fals}
+### 'Ai verificat butucul sa fie ok?'.
+
+#rulmenti_butuc
+{sparti, ok}
+### 'In ce stare sunt rulmentii?'.
+
+#ax_butuc
+{stramb, drept}
+### 'In ce stare este axul butucului pedalier?'.
+
+#verificat_pedale
+{adevarat, fals}
+### 'Ai verificat pedalele sa fie ok?'.
+
+#rulmenti_pedale
+{sparti, ok}
+### 'In ce stare sunt rulmentii?'.
+
+#ax_pedale
+{stramb, drept}
+### 'In ce stare este axul pedalelor?'.
+
+#descentrat_fata
+{adevarat, fals}
+### 'Roata din fata este descentrata?'.
+
+#tip_furca
+{fixa, hidraulica, pe_arcuri}
+### 'Ce tip de furca ai?'.
+
+#stare_furca_fixa
+{dreapta, indoita}
+### 'In ce stare este furca ta?'.
+
+#stare_rulmenti_furca
+{deteriorati, ok}
+### 'In ce stare sunt rulmentii de la furca?'.
+
+#brate_furca
+{gripate, ok}
+### 'In ce stare sunt bratele furcii tale?'.
+
+#servisare_arcuri
+{sub_1an, peste_1an}
+### 'Cand ai verificat ultima data arcurile de la furca?'.
+
+#servisare_hidraulica
+{sub_1an, peste_1an}
+### 'Cat timp a trecut de cand nu ai mai schimbat uleiul din furca?'.
+
+#maneta_schimbator
+{reglat, nereglat}
+### 'Este reglat schimbatorul tau?'.
+
+#maneta_frana
+{reglata, nereglata}
+### 'Este reglata maneta franei tale?'.
+
+#lumina_far
+{slaba, puternica}
+### 'Ce intensitate are lumina farului tau?'.
+
+#ciclometru
+{ok, viteza_incorecta, baterie_descarcata}
+### 'Ce problema are ciclometrul tau?'.
+
+#sonerie
+{ok, nu_merge}
+### 'In ce stare este soneria ta?'.
+
+#bidon_apa
+{nestrans, ok}
+### 'In ce stare este bidonul tau de apa?'.

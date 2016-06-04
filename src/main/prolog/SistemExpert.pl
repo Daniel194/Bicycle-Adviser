@@ -243,7 +243,7 @@ ajusteaza(FC1,FC2,FC):- X is FC1 * FC2 / 100, FC is round(X).
 
 
 % combina(FC1,FC2,FC).
-% TODO
+% Predicatul de mai jos combina factorii de certitudine F1 cu F2 in FC.
 combina(FC1,FC2,FC):- FC1 >= 0,FC2 >= 0, X is FC2*(100 - FC1)/100 + FC1, FC is round(X).
 combina(FC1,FC2,FC):- FC1 < 0,FC2 < 0, X is - ( -FC1 -FC2 * (100 + FC1)/100), FC is round(X).
 combina(FC1,FC2,FC):- (FC1 < 0; FC2 < 0), (FC1 > 0; FC2 > 0), FCM1 is abs(FC1),FCM2 is abs(FC2), MFC is min(FCM1,FCM2),

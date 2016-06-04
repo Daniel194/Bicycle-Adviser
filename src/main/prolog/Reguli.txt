@@ -1,58 +1,503 @@
 regula nr. 1
 premisele sunt
 	scartait are valoarea spate,
-atunci loc_scartait are valoarea spate.
+atunci loc_scartait are valoarea spate cu fc 90.
 
 regula nr. 2
 premisele sunt
 	scartait are valoarea central,
-atunci loc_scartait are valoarea central.
+atunci loc_scartait are valoarea central cu fc 90.
 
 regula nr. 3
 premisele sunt
 	scartait are valoarea fata,
-atunci loc_scartait are valoarea fata.
+atunci loc_scartait are valoarea fata cu fc 90.
 
 regula nr. 4
 premisele sunt
 	scartait are valoarea fals,
-atunci loc_scartait are valoarea fals.
+atunci loc_scartait are valoarea fals cu fc 90.
 
 regula nr. 5
 premisele sunt
 	loc_scartait are valoarea spate,
 	descentrat are valoarea adevarat,
-atunci problema_roata_spate este adevarat cu fc 90.
+atunci problema_roata_spate este adevarat cu fc 80.
 
 regula nr. 6
 premisele sunt
 	problema_roata_spate este adevarat,
 	pinioane are valoarea uzate,
-atunci problema_bicicleta are valoarea 'Verifica pinioane!' cu fc 80.
+atunci problema_bicicleta are valoarea 'Verifica pinioane!' cu fc 75.
 
 regula nr. 7
 premisele sunt
 	problema_roata_spate este adevarat,
 	pinioane are valoarea uzate,
-atunci problema_bicicleta are valoarea 'Verifica rulmenti!' cu fc 75.
+atunci problema_bicicleta are valoarea 'Verifica rulmenti!' cu fc 70.
 
 regula nr. 8
 premisele sunt
 	problema_roata_spate este adevarat,
 	spite are valoarea indoite,
-atunci problema_bicicleta are valoarea 'Spitele tale sunt indoite, si se pot rupe, verifica-le!' cu fc 90.
+atunci problema_bicicleta are valoarea 'Spitele tale sunt indoite, si se pot rupe, verifica-le!' cu fc 88.
 
 regula nr. 9
 premisele sunt
 	problema_roata_spate este adevarat,
-	spite are valoarea drepte,
 	cauciuc are valoarea tocit,
-atunci problema_bicicleta are valoarea 'Cauciucul trebuie schimbat, este prea tocit!' cu fc 80.
+atunci problema_bicicleta are valoarea 'Cauciucul trebuie schimbat, este prea tocit!' cu fc 99.
 
 regula nr. 10
 premisele sunt
 	problema_roata_spate este adevarat,
-	deraior are valoarea stramb,
-	spite are valoarea drepte,
 	cauciuc are valoarea ok,
+	camera are valoarea sparta,
+atunci problema_bicicleta are valoarea 'Camera ta este sparta, necesita petic, sau inlocuire.' cu fc 89.
+
+regula nr. 11
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea stramb,
+	cauciuc are valoarea ok,
+	spite are valoarea drepte,
 atunci problema_bicicleta are valoarea 'Deraiorul tau este stramb, trebuie indreptat!' cu fc 80.
+
+regula nr. 12
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea stramba,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Urechea deraiorului este stramba, necesita inlocuire!' cu fc 93.
+
+regula nr. 13
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea murdar,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau trebuie curatat!' cu fc 93.
+
+regula nr. 14
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea murdar,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau este prea intins (uzat) trebuie schimbat neaparat!' cu fc 88.
+
+regula nr. 15
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea ruginit,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau trebuie schimbat urgent!' cu fc 95.
+
+regula nr. 16
+premisele sunt
+	problema_roata_spate este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea intins,
+	cauciuc are valoarea ok,
+	camera are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau este prea intins (uzat) trebuie schimbat neaparat!' cu fc 88.
+
+regula nr. 17
+premisele sunt
+	problema_roata_spate este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea fals,
+atunci problema_bicicleta are valoarea 'Pana nu centrezi roata, nu iti poti centra si frana!' cu fc 98.
+
+regula nr. 18
+premisele sunt
+	problema_roata_spate este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea adevarat,
+	frana_saboti_tociti are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti sabotii!' cu fc 97.
+
+regula nr. 19
+premisele sunt
+	problema_roata_spate este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Centreaza, sau schimba discul!' cu fc 98.
+
+regula nr. 20
+premisele sunt
+	problema_roata_spate este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea fals,
+	frana_disc_placute are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti placutele!' cu fc 97.
+
+regula nr. 21
+premisele sunt
+	loc_scartait are valoarea spate,
+	descentrat are valoarea fals,
+atunci problema_roata_spate_centrat este adevarat cu fc 80.
+
+regula nr. 22
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	pinioane are valoarea uzate,
+atunci problema_bicicleta are valoarea 'Verifica pinioane!' cu fc 75.
+
+regula nr. 23
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	pinioane are valoarea uzate,
+atunci problema_bicicleta are valoarea 'Verifica rulmenti!' cu fc 70.
+
+regula nr. 24
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	cauciuc are valoarea tocit,
+atunci problema_bicicleta are valoarea 'Cauciucul trebuie schimbat, este prea tocit!' cu fc 99.
+
+regula nr. 25
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	cauciuc are valoarea ok,
+	camera are valoarea sparta,
+atunci problema_bicicleta are valoarea 'Camera ta este sparta, necesita petic, sau inlocuire.' cu fc 89.
+
+regula nr. 26
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	deraior are valoarea stramb,
+	cauciuc are valoarea ok,
+	spite are valoarea drepte,
+atunci problema_bicicleta are valoarea 'Deraiorul tau este stramb, trebuie indreptat!' cu fc 80.
+
+regula nr. 27
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea stramba,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Urechea deraiorului este stramba, necesita inlocuire!' cu fc 93.
+
+regula nr. 28
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea murdar,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau trebuie curatat!' cu fc 93.
+
+regula nr. 29
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea murdar,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau este prea intins (uzat) trebuie schimbat neaparat!' cu fc 88.
+
+regula nr. 30
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea ruginit,
+	cauciuc are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau trebuie schimbat urgent!' cu fc 95.
+
+regula nr. 31
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	deraior are valoarea drept,
+	ureche_deraior are valoarea dreapta,
+	lant are valoarea intins,
+	cauciuc are valoarea ok,
+	camera are valoarea ok,
+atunci problema_bicicleta are valoarea 'Lantul tau este prea intins (uzat) trebuie schimbat neaparat!' cu fc 88.
+
+regula nr. 32
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea fals,
+atunci problema_bicicleta are valoarea 'Centraza-ti franele!' cu fc 98.
+
+regula nr. 33
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea adevarat,
+	frana_saboti_tociti are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti sabotii!' cu fc 97.
+
+regula nr. 34
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Centreaza, sau schimba discul!' cu fc 98.
+
+regula nr. 35
+premisele sunt
+	problema_roata_spate_centrat este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea fals,
+	frana_disc_placute are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti placutele!' cu fc 97.
+
+regula nr. 36
+premisele sunt
+	loc_scartait are valoarea central,
+	tip_sa are valoarea pe_arcuri,
+atunci problema_bicicleta are valoarea 'Arcurile tale sunt uzate!' cu fc 86.
+
+regula nr. 37
+premisele sunt
+	loc_scartait are valoarea central,
+	tija_sa are valoarea uscata,
+atunci problema_bicicleta are valoarea 'Unge tija de la sa!' cu fc 85.
+
+regula nr. 38
+premisele sunt
+	loc_scartait are valoarea central,
+	foaie are valoarea uzata,
+atunci problema_bicicleta are valoarea 'Foile tale sunt uzate si trebuiesc inlocuite!' cu fc 83.
+
+regula nr. 39
+premisele sunt
+	loc_scartait are valoarea central,
+	cadru are valoarea fisurat,
+atunci problema_bicicleta are valoarea 'Cadrul tau este fisurat, problema este grava, si ai nevoie de un cadru nou!' cu fc 69.
+
+regula nr. 40
+premisele sunt
+	loc_scartait are valoarea central,
+	verificat_butuc are valoarea adevarat,
+atunci problema_butuc este adevarat cu fc 95.
+
+regula nr. 41
+premisele sunt
+	problema_butuc este adevarat,
+	rulmenti_butuc are valoarea sparti,
+atunci problema_bicicleta are valoarea 'Schimba rulmentii butucului!' cu fc 97.
+
+regula nr. 42
+premisele sunt
+	problema_butuc este adevarat,
+	ax_butuc are valoarea stramb,
+atunci problema_bicicleta are valoarea 'Trebuie inlocuit axul butucului pedalier!' cu fc 98.
+
+regula nr. 43
+premisele sunt
+	loc_scartait are valoarea central,
+	verificat_pedale are valoarea adevarat,
+atunci problema_pedale este adevarat cu fc 95.
+
+regula nr. 44
+premisele sunt
+	problema_pedale este adevarat,
+	rulmenti_pedale are valoarea sparti,
+atunci problema_bicicleta are valoarea 'Schimba rulmentii pedalelor!' cu fc 97.
+
+regula nr. 45
+premisele sunt
+	problema_pedale este adevarat,
+	ax_pedale are valoarea stramb,
+atunci problema_bicicleta are valoarea 'Trebuie inlocuit axul pedalelor!' cu fc 98.
+
+regula nr. 46
+premisele sunt
+	loc_scartait are valoarea fata,
+	descentrat_fata are valoarea adevarat,
+atunci problema_roata_fata este adevarat cu fc 80.
+
+regula nr. 47
+premisele sunt
+	problema_roata_fata este adevarat,
+	spite are valoarea indoite,
+atunci problema_bicicleta are valoarea 'Spitele tale sunt indoite, si se pot rupe, verifica-le!' cu fc 88.
+
+regula nr. 48
+premisele sunt
+	problema_roata_fata este adevarat,
+	cauciuc are valoarea tocit,
+atunci problema_bicicleta are valoarea 'Cauciucul trebuie schimbat, este prea tocit!' cu fc 99.
+
+regula nr. 49
+premisele sunt
+	problema_roata_fata este adevarat,
+	cauciuc are valoarea ok,
+	camera are valoarea sparta,
+atunci problema_bicicleta are valoarea 'Camera ta este sparta, necesita petic, sau inlocuire.' cu fc 89.
+
+regula nr. 50
+premisele sunt
+	problema_roata_fata este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea fals,
+atunci problema_bicicleta are valoarea 'Nu iti poti centra frana, pana nu centrezi roata!' cu fc 98.
+
+regula nr. 51
+premisele sunt
+	problema_roata_fata este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea adevarat,
+	frana_saboti_tociti are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti sabotii!' cu fc 97.
+
+regula nr. 52
+premisele sunt
+	problema_roata_fata este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Centreaza, sau schimba discul!' cu fc 98.
+
+regula nr. 53
+premisele sunt
+	problema_roata_fata este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea fals,
+	frana_disc_placute are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti placutele!' cu fc 97.
+
+regula nr. 54
+premisele sunt
+	loc_scartait are valoarea fata,
+	descentrat_fata are valoarea fals,
+atunci problema_roata_fata_centrat este adevarat cu fc 80.
+
+regula nr. 55
+premisele sunt
+	problema_roata_fata_centrat este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea fals,
+atunci problema_bicicleta are valoarea 'Centreza-ti frana' cu fc 98.
+
+regula nr. 56
+premisele sunt
+	problema_roata_fata_centrat este adevarat,
+	tip_frana are valoarea saboti,
+	frana_saboti_centrat are valoarea adevarat,
+	frana_saboti_tociti are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti sabotii!' cu fc 97.
+
+regula nr. 57
+premisele sunt
+	problema_roata_fata_centrat este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Centreaza, sau schimba discul!' cu fc 98.
+
+regula nr. 58
+premisele sunt
+	problema_roata_fata_centrat este adevarat,
+	tip_frana are valoarea disc,
+	frana_disc_stramb are valoarea fals,
+	frana_disc_placute are valoarea adevarat,
+atunci problema_bicicleta are valoarea 'Schimba-ti placutele!' cu fc 97.
+
+regula nr. 59
+premisele sunt
+	problema_roata_fata_centrat este adevarat,
+	tip_furca are valoarea fixa,
+	stare_furca_fixa are valoarea indoita,
+atunci problema_bicicleta are valoarea 'Furca ta este lovita, tebuie schimbata!' cu fc 86.
+
+regula nr. 60
+premisele sunt
+	loc_scartait are valoarea fata,
+	tip_furca are valoarea fixa,
+atunci problema_rulmenti este adevarat cu fc 93.
+
+regula nr. 61
+premisele sunt
+	loc_scartait are valoarea fata,
+	tip_furca are valoarea pe_arcuri,
+atunci problema_rulmenti este adevarat cu fc 93.
+
+regula nr. 62
+premisele sunt
+	loc_scartait are valoarea fata,
+	tip_furca are valoarea hidraulica,
+atunci problema_rulmenti este adevarat cu fc 93.
+
+regula nr. 63
+premisele sunt
+	problema_rulmenti este adevarat,
+	stare_rulmenti_furca are valoarea deteriorati,
+atunci problema_bicicleta are valoarea 'Rulmentii de la furca necesita inlocuire!' cu fc 99.
+
+regula nr. 64
+premisele sunt
+	loc_scartait are valoarea fata,
+	tip_furca are valoarea pe_arcuri,
+	brate_furca are valoarea gripate,
+atunci problema_furca este adevarat cu fc 97.
+
+regula nr. 65
+premisele sunt
+	problema_furca este adevarat,
+	servisare_arcuri are valoarea peste_1an,
+atunci problema_bicicleta are valoarea 'Arcurile tale necesita o perioada de mentenanta!' cu fc 89.
+
+regula nr. 66
+premisele sunt
+	loc_scartait are valoarea fata,
+	tip_furca are valoarea hidraulica,
+	brate_furca are valoarea gripate,
+atunci problema_furca_hidraulica este adevarat cu fc 97.
+
+regula nr. 67
+premisele sunt
+	problema_furca_hidraulica este adevarat,
+	servisare_hidraulica are valoarea peste_1an,
+atunci problema_bicicleta are valoarea 'Trebuie inlocuit uleiul din furca!' cu fc 95.
+
+regula nr. 68
+premisele sunt
+	loc_scartait are valoarea fals,
+	maneta_schimbator are valoarea nereglat,
+atunci problema_bicicleta are valoarea 'Regleaza schimbatorul!'.
+
+regula nr. 69
+premisele sunt
+	loc_scartait are valoarea fals,
+	maneta_frana are valoarea nereglata,
+atunci problema_bicicleta are valoarea 'Regleaza frana!'.
+
+regula nr. 70
+premisele sunt
+	loc_scartait are valoarea fals,
+	lumina_far are valoarea slaba,
+atunci problema_bicicleta are valoarea 'Farul tau are nevoie de baterii noi!'.
+
+regula nr. 71
+premisele sunt
+	loc_scartait are valoarea fals,
+	ciclometru are valoarea baterie_descarcata,
+atunci problema_bicicleta are valoarea 'Schimba bateria de la ciclometru!' cu fc 99.
+
+regula nr. 72
+premisele sunt
+	loc_scartait are valoarea fals,
+	ciclometru are valoarea viteza_incorecta,
+atunci problema_bicicleta are valoarea 'Schimba setarile de roata de la ciclometru!' cu fc 87.
+
+regula nr. 73
+premisele sunt
+	loc_scartait are valoarea fals,
+	sonerie are valoarea nu_merge,
+atunci problema_bicicleta are valoarea 'Schimba-ti sau repara-ti soneria!'.
+
+regula nr. 74
+premisele sunt
+	loc_scartait are valoarea fals,
+	bidon_apa are valoarea nestrans,
+atunci problema_bicicleta are valoarea 'Strange suportul de bidon !'.
