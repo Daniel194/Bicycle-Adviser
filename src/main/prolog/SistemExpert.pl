@@ -79,7 +79,7 @@ executa([_|_]):- write('Comanda incorecta! '),nl.
 
 % scopuri_prin.
 % Predicatul de mai jos determina si afiseaza scopurile principale.
-scopuri_princ:- scop(Atr),determina(Atr), lista_fapte(Atr ,L), afiseaza_scop(L),fail.
+scopuri_princ:- scop(Atr),determina(Atr), lista_fapte(Atr ,L), bubble_sort(L, [], S), afiseaza_scop(S),fail.
 scopuri_princ:- \+ are_solutii, write('Nu exista solutii !'), nl.
 scopuri_princ.
 
@@ -90,6 +90,19 @@ determina(Atr):- realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
 determina(_).
 
 
+% bubble_sort(+ List,+ Acc,- Sorted)
+% Predicatul de mai jos aplica metoda bubble sort ca sa sorteze o lista de fapte.
+bubble_sort([],Acc,Acc).
+bubble_sort([H|T],Acc,Sorted):- bubble(H,T,NT,Max),bubble_sort(NT,[Max|Acc],Sorted).
+
+
+% bubble(+H,+T, -NT, -Max).
+% Predicatul de mai jos realizeaza permutarea prin metoda bulelor.
+bubble(X,[],[],X).
+bubble(el(av(Atr1,Val1),FC1),[el(av(Atr2,Val2),FC2)|T],[el(av(Atr2,Val2),FC2)|NT],Max):-FC1<FC2, bubble(el(av(Atr1,Val1),FC1),T,NT,Max).
+bubble(el(av(Atr1,Val1),FC1),[el(av(Atr2,Val2),FC2)|T],[el(av(Atr1,Val1),FC1)|NT],Max):-FC1>=FC2,bubble(el(av(Atr2,Val2),FC2),T,NT,Max).
+
+
 % afiseaza_scop(+L).
 % Predicatul de mai jos afiseaza scopul.
 afiseaza_scop([el(av(Atr,Val),FC)|T]):- nl, scrie_scop(av(Atr,Val),FC), assert(are_solutii), nl, afiseaza_scop(T), fail.
@@ -98,7 +111,7 @@ afiseaza_scop(_):- nl, nl.
 
 % lista_fapte(+ Atr, - L)
 % Predicatul de mai jos intoarce lista de fapte din baza de cunostinte
-lista_fapte(Atr ,L):- bagof(el(av(Atr,Val),FC), (fapt(av(Atr,Val),FC,_), FC >= 50), L).
+lista_fapte(Atr ,L):- findall(el(av(Atr,Val),FC), Val^FC^(fapt(av(Atr,Val),FC,_), FC >= 50), L).
 
 
 % scrie_scop(+ av(Atr,Val), + FC).
