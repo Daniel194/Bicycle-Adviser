@@ -48,6 +48,7 @@ listeaza_fapte:- fapt(av(Atr,Val),FC,_), write('('),write(Atr),write(','), write
 listeaza_fapte.
 
 
+% lista_float_int(L,L)
 % TODO
 lista_float_int([],[]).
 lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1 is integer(Regula);
