@@ -25,7 +25,7 @@
 :-discontiguous citeste_cuvant/3.
 
 
-% TODO
+% Definirea unui operator care intoarce negatul.
 not(P):-P,!,fail.
 not(_).
 
@@ -48,8 +48,8 @@ listeaza_fapte:- fapt(av(Atr,Val),FC,_), write('('),write(Atr),write(','), write
 listeaza_fapte.
 
 
-% lista_float_int(L,L)
-% TODO
+% lista_float_int(+ L,- L)
+% Predicatul de mai jso transforma valorile de float in int.
 lista_float_int([],[]).
 lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1 is integer(Regula);
                                                       Regula ==utiliz, Regula1=Regula), lista_float_int(Reguli,Reguli1).
@@ -85,7 +85,7 @@ scopuri_princ.
 
 
 % determina(+Atr).
-% TODO
+% Predicatul de mai jos determina scopul principal.
 determina(Atr):- realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
 determina(_).
 
@@ -120,29 +120,29 @@ scrie_scop(av(Atr,Val),FC):- transformare(av(Atr,Val), X), scrie_lista(X),tab(2)
 	                         FC1 is integer(FC),write(FC1).
 
 
-% realizare_scop(Scop,FC,Istorie).
-% TODO
+% realizare_scop(+ Scop,- FC,- Istorie).
+% Predicatul de mai jos realizeaza scopul principal.
 realizare_scop(not Scop,Not_FC,Istorie):- realizare_scop(Scop,FC,Istorie), Not_FC is - FC, !.
 realizare_scop(Scop,FC,_):- fapt(Scop,FC,_), !.
 realizare_scop(Scop,FC,Istorie):- pot_interoga(Scop,Istorie), !,realizare_scop(Scop,FC,Istorie).
 realizare_scop(Scop,FC_curent,Istorie):- fg(Scop,FC_curent,Istorie).
 
 
-% fg(Scop,FC_curent,Istorie).
-% TODO
+% fg(+ Scop,- FC_curent,- Istorie).
+% Predicatul de mai jos determina noul FC.
 fg(Scop,FC_curent,Istorie):- regula(N, premise(Lista), concluzie(Scop,FC)), demonstreaza(N,Lista,FC_premise,Istorie), ajusteaza(FC,FC_premise,FC_nou),
 	                         actualizeaza(Scop,FC_nou,FC_curent,N), FC_curent == 100,!.
 fg(Scop,FC,_):- fapt(Scop,FC,_).
 
 
-% pot_interoga(av(Atr,_),Istorie).
-% TODO
+% pot_interoga(+ Av, - Istorie).
+% Predicatul de mai jos determina daca se poate interoga.
 pot_interoga(av(Atr,_),Istorie):- not interogat(av(Atr,_)), interogabil(Atr,Optiuni,Mesaj), interogheaza(Atr,Mesaj,Optiuni,Istorie),nl,
 	                              asserta( interogat(av(Atr,_)) ).
 
 
 % cum(+L)
-% TODO
+% Predicatul de mai jos determina cum s-a ajuns la faptul respectiv.
 cum([]):- write('Scop? '),nl, write('|:'),citeste_linie(Linie),nl,transformare(Scop,Linie), cum(Scop).
 cum(L):-  transformare(Scop,L),nl, cum(Scop).
 cum(not Scop):- fapt(Scop,FC,Reguli), lista_float_int(Reguli,Reguli1), FC < -20,transformare(not Scop,PG),
@@ -167,61 +167,57 @@ scrie_lista_premise([]).
 scrie_lista_premise([H|T]):- transformare(H,H_tr), tab(5),scrie_lista(H_tr), scrie_lista_premise(T).
 
 
-% transformare(av(A,da),[A])
-% TODO
+% transformare(+ Av, - A)
+% Predicatul de mai jos transforma Av in A.
 transformare(av(A,da),[A]):- !.
 transformare(not av(A,da), [not,A]):- !.
 transformare(av(A,nu),[not,A]):- !.
 transformare(av(A,V),[A,este,V]).
 
 
-% premisele(N).
-% TODO
+% premisele(+N).
+% Predicatul de mai jos intoarce lista de premise N.
 premisele(N):- regula(N, premise(Lista_premise), _), !, cum_premise(Lista_premise).
 
 
-% cum_premise(L).
-% TODO
+% cum_premise(+L).
+% Predicatul de mai jos demonstreaza lista de premise.
 cum_premise([]).
 cum_premise([Scop|X]):- cum(Scop), cum_premise(X).
 
 
-% interogheaza(Atr,Mesaj,[da,nu],Istorie).
-% TODO.
+% interogheaza(+ Atr,+ Mesaj,+ Optiuni,+ Istorie).
+% Predicatul de mai jos interogheaza userul.
 interogheaza(Atr,Mesaj,[da,nu],Istorie):- !,write(Mesaj),nl, de_la_utiliz(X,Istorie,[da,nu]), det_val_fc(X,Val,FC),
 	                                      asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 interogheaza(Atr,Mesaj,Optiuni,Istorie):- write(Mesaj),nl, citeste_opt(VLista,Optiuni,Istorie), assert_fapt(Atr,VLista).
 
 
-% citeste_opt(X,Optiuni,Istorie).
-% TODO
+% citeste_opt(- X,+ Optiuni,+ Istorie).
+% Predicatul de mai jos citeste optiunile existente la o intrebare.
 citeste_opt(X,Optiuni,Istorie):- append(['('],Optiuni,Opt1), append(Opt1,[')'],Opt), scrie_lista(Opt), de_la_utiliz(X,Istorie,Optiuni).
 
 
-% de_la_utiliz(X,Istorie,Lista_opt).
-% TODO
+% de_la_utiliz(- X,+ Istorie,+ Lista_opt).
+% Predicatul de mai jos citeste raspunsul de la utilizator.
 de_la_utiliz(X,Istorie,Lista_opt):- repeat,write(': '),citeste_linie(X), proceseaza_raspuns(X,Istorie,Lista_opt).
 
 
-% proceseaza_raspuns([de_ce],Istorie,_).
-% TODO
+% proceseaza_raspuns(+L ,+Istorie,+ Lista_opt).
+% Predicatul de mai jos proceseaza raspunsul.
 proceseaza_raspuns([de_ce],Istorie,_):- nl,afis_istorie(Istorie),!,fail.
-
-
-% proceseaza_raspuns([X],_,Lista_opt).
-% TODO
 proceseaza_raspuns([X],_,Lista_opt):- member(X,Lista_opt).
 proceseaza_raspuns([X,fc,FC],_,Lista_opt):- member(X,Lista_opt),float(FC).
 
 
-% assert_fapt(Atr,[Val,fc,FC]).
-% TODO
+% assert_fapt(+ Atr,+ L).
+% Predicatul de mai jos insereaza fapt-ul in baza de cunstinte.
 assert_fapt(Atr,[Val,fc,FC]):- !,asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 assert_fapt(Atr,[Val]):- asserta( fapt(av(Atr,Val),100,[utiliz])).
 
 
-% det_val_fc([Val,FC],Val,FC).
-% TODO
+% det_val_fc(+ L,+ Val,- FC).
+% Predicatul de mai jos determina factorul de certitudine.
 det_val_fc([nu],da,-100).
 det_val_fc([nu,FC],da,NFC):- NFC is -FC.
 det_val_fc([nu,fc,FC],da,NFC):- NFC is -FC.
@@ -230,38 +226,38 @@ det_val_fc([Val,fc,FC],Val,FC).
 det_val_fc([Val],Val,100).
 
 
-% afis_istorie([scop(X)|T]).
+% afis_istorie(+L).
 % Predicatul de mai jos afiseaza istoria.
 afis_istorie([]):- nl.
 afis_istorie([scop(X)|T]):- scrie_lista([scop,X]),!, afis_istorie(T).
 afis_istorie([N|T]):- afis_regula(N),!,afis_istorie(T).
 
 
-% demonstreaza(N,ListaPremise,Val_finala,Istorie).
-% TODO
+% demonstreaza(+ N,- ListaPremise,+ Val_finala,+ Istorie).
+% Predicatul de mai jos demonstreaza valoarea final prin intoarcerea listei de premise.
 demonstreaza(N,ListaPremise,Val_finala,Istorie):- dem(ListaPremise,100,Val_finala,[N|Istorie]),!.
 
 
-% dem([H|T],Val_actuala,Val_finala,Istorie).
-% TODO
+% dem(- L,+ Val_actuala, + Val_finala,+ Istorie).
+% Predicatul de mai jos demonstreza Valoarea finala.
 dem([],Val_finala,Val_finala,_).
 dem([H|T],Val_actuala,Val_finala,Istorie):- realizare_scop(H,FC,Istorie), Val_interm is min(Val_actuala,FC), Val_interm >= 20,
 	                                        dem(T,Val_interm,Val_finala,Istorie).
 
 
-% actualizeaza(Scop,FC,FC,RegulaN).
-% TODO
+% actualizeaza(+ Scop,+ FC_nou,+ FC,+ RegulaN).
+% Predicatul de mai jos actualizeaza factorul de certitudine.
 actualizeaza(Scop,FC_nou,FC,RegulaN):- fapt(Scop,FC_vechi,_), combina(FC_nou,FC_vechi,FC), retract( fapt(Scop,FC_vechi,Reguli_vechi) ),
 	                                   asserta( fapt(Scop,FC,[RegulaN | Reguli_vechi]) ),!.
 actualizeaza(Scop,FC,FC,RegulaN):- asserta( fapt(Scop,FC,[RegulaN]) ).
 
 
-% ajusteaza(FC1,FC2,FC).
-% TODO
+% ajusteaza(+ FC1,+ FC2,- FC).
+% Predicatul de mai jos ajuseteaza factorul de certitudine.
 ajusteaza(FC1,FC2,FC):- X is FC1 * FC2 / 100, FC is round(X).
 
 
-% combina(FC1,FC2,FC).
+% combina(+FC1,+FC2,-FC).
 % Predicatul de mai jos combina factorii de certitudine F1 cu F2 in FC.
 combina(FC1,FC2,FC):- FC1 >= 0,FC2 >= 0, X is FC2*(100 - FC1)/100 + FC1, FC is round(X).
 combina(FC1,FC2,FC):- FC1 < 0,FC2 < 0, X is - ( -FC1 -FC2 * (100 + FC1)/100), FC is round(X).
@@ -339,21 +335,21 @@ atunci(Atunci,FC) --> propoz(Atunci),[cu, fc],[FC].
 atunci(Atunci,100) --> propoz(Atunci).
 
 
-% propoz(not av(Atr,da))
+% propoz(-A)
 % Predicatul de mai jos paraseaza premisele/concluziile scrise in limbaj natural in forma corespunzatoare pentru baza de cunostinte.
 propoz(not av(Atr,da)) --> [Atr, nu, este, adevarat].
 propoz(av(Atr,Val)) --> [Atr, are, valoarea, Val].
 propoz(av(Atr,da)) --> [Atr, este, adevarat].
 
 
-% citeste_linie([Cuv|Lista_cuv]).
-% TODO
+% citeste_linie(-L).
+% Predicatul de mai jos citeste o linie.
 citeste_linie([Cuv|Lista_cuv]):- get_code(Car), citeste_cuvant(Car, Cuv, Car1), rest_cuvinte_linie(Car1, Lista_cuv).
 
 
-% rest_cuvinte_linie(Car,[]).
+% rest_cuvinte_linie(+ Car,- L).
+% Predicatul de mai jos determina daca trebuie oprit cititul.
 % -1 este codul ASCII pt EOF
-% TODO
 rest_cuvinte_linie(-1, []):- !.    
 rest_cuvinte_linie(Car,[]):- (Car==13;Car==10), !.
 rest_cuvinte_linie(Car,[Cuv1|Lista_cuv]):- citeste_cuvant(Car,Cuv1,Car1),rest_cuvinte_linie(Car1,Lista_cuv).
