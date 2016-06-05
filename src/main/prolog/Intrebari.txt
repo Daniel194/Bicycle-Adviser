@@ -1,11 +1,11 @@
 scopul cautat e problema_bicicleta.
 
 #scartait
-{fata, spate, central, fals}
+{fata, spate, central, nu_scartaie}
 ### 'Unde scartaie bicicleta?'.
 
 #descentrat
-{adevarat, fals}
+{da, nu}
 ### 'Roata din spate este descentrata?'.
 
 #pinioane
@@ -41,19 +41,19 @@ scopul cautat e problema_bicicleta.
 ### 'Ce tip de frana ai?'.
 
 #frana_saboti_centrat
-{adevarat, fals}
+{da, nu}
 ### 'Este frana centrata?'.
 
 #frana_saboti_tociti
-{adevarat, fals}
+{da, nu}
 ### 'Sunt sabotii tai tociti?'.
 
 #frana_disc_stramb
-{adevarat, fals}
+{da, nu}
 ### 'Este discul tau de frana stramb?'.
 
 #frana_disc_placute
-{adevarat, fals}
+{da, nu}
 ### 'Sunt placutele tale de frana uzate?'.
 
 #tip_sa
@@ -73,7 +73,7 @@ scopul cautat e problema_bicicleta.
 ### 'In ce stare este cadrul tau?'.
 
 #verificat_butuc
-{adevarat, fals}
+{da, nu}
 ### 'Ai verificat butucul sa fie ok?'.
 
 #rulmenti_butuc
@@ -85,7 +85,7 @@ scopul cautat e problema_bicicleta.
 ### 'In ce stare este axul butucului pedalier?'.
 
 #verificat_pedale
-{adevarat, fals}
+{da, nu}
 ### 'Ai verificat pedalele sa fie ok?'.
 
 #rulmenti_pedale
@@ -97,7 +97,7 @@ scopul cautat e problema_bicicleta.
 ### 'In ce stare este axul pedalelor?'.
 
 #descentrat_fata
-{adevarat, fals}
+{da, nu}
 ### 'Roata din fata este descentrata?'.
 
 #tip_furca
