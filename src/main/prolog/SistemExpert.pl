@@ -48,6 +48,7 @@ listeaza_fapte:- fapt(av(Atr,Val),FC,_), write('('),write(Atr),write(','), write
 listeaza_fapte.
 
 
+% lista_float_int(L,L)
 % TODO
 lista_float_int([],[]).
 lista_float_int([Regula|Reguli],[Regula1|Reguli1]):- (Regula \== utiliz, Regula1 is integer(Regula);
@@ -78,7 +79,7 @@ executa([_|_]):- write('Comanda incorecta! '),nl.
 
 % scopuri_prin.
 % Predicatul de mai jos determina si afiseaza scopurile principale.
-scopuri_princ:- scop(Atr),determina(Atr), afiseaza_scop(Atr),fail.
+scopuri_princ:- scop(Atr),determina(Atr), lista_fapte(Atr ,L), afiseaza_scop(L),fail.
 scopuri_princ:- \+ are_solutii, write('Nu exista solutii !'), nl.
 scopuri_princ.
 
@@ -89,10 +90,15 @@ determina(Atr):- realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
 determina(_).
 
 
-% afiseaza_scop(+Atr).
+% afiseaza_scop(+L).
 % Predicatul de mai jos afiseaza scopul.
-afiseaza_scop(Atr) :- nl,fapt(av(Atr,Val),FC,_), FC >= 20,scrie_scop(av(Atr,Val),FC), assert(are_solutii), nl,fail.
-afiseaza_scop(_):- nl,nl.
+afiseaza_scop([el(av(Atr,Val),FC)|T]):- nl, scrie_scop(av(Atr,Val),FC), assert(are_solutii), nl, afiseaza_scop(T), fail.
+afiseaza_scop(_):- nl, nl.
+
+
+% lista_fapte(+ Atr, - L)
+% Predicatul de mai jos intoarce lista de fapte din baza de cunostinte
+lista_fapte(Atr ,L):- bagof(el(av(Atr,Val),FC), (fapt(av(Atr,Val),FC,_), FC >= 50), L).
 
 
 % scrie_scop(+ av(Atr,Val), + FC).
