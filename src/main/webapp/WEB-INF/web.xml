@@ -23,4 +23,8 @@
         <url-pattern>/ws/*</url-pattern>
     </servlet-mapping>
 
+    <welcome-file-list>
+        <welcome-file>view/app.html</welcome-file>
+    </welcome-file-list>
+
 </web-app>
