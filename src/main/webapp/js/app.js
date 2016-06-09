@@ -1,14 +1,15 @@
-var app = angular.module('app',[]);
+var app = angular.module('app', [])
+    .controller('appController', function ($scope, $http) {
+        var jsonUrl = "http://localhost:8080/ws/answer/daniel";
 
-app.controller('appController',function ($scope) {
-    $scope.first = 0;
-    $scope.second = 0;
+        $http.get(jsonUrl).success(
+            function (data) {
+                $scope.question = data.question;
+                $scope.options = data.options;
+            }
+        );
 
-    $scope.calculate = function () {
-        $scope.result = $scope.first + $scope.second;
-    };
-
-    $scope.getQuestion = function () {
-        return 'view/question.html';
-    };
-});
+        $scope.getQuestion = function () {
+            return 'view/question.html';
+        };
+    });
