@@ -5,7 +5,7 @@
     <title>Bicycle Adviser</title>
 </head>
 <body>
-<div ng-controller="appController">
+<div ng-controller="appController" class="main">
     <span>
         Value:
     </span>
@@ -16,14 +16,12 @@
     <span>
         {{result}}
     </span>
-    <div ng-include="'view/answer.html'">
+    <div ng-include="getQuestion()">
 
     </div>
-
-    <ng-inclue src="getQuestion()"></ng-inclue>
 </div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="js/app.js"></script>
-<link type="text/css" href="css/app.css">
+<link rel="stylesheet" type="text/css" href="css/app.css">
 </html>

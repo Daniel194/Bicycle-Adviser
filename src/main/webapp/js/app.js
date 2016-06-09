@@ -9,6 +9,6 @@ app.controller('appController',function ($scope) {
     };
 
     $scope.getQuestion = function () {
-        return "view/question.html"
+        return 'view/question.html';
     };
 });
