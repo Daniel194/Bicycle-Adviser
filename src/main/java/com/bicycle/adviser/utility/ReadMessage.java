@@ -76,11 +76,7 @@ public class ReadMessage extends Thread {
                     });
                 }
             }
-        } catch (
-                IOException ex
-                )
-
-        {
+        } catch (IOException ex) {
             Logger.getLogger(ReadMessage.class.getName()).log(Level.SEVERE, null, ex);
         }
 
