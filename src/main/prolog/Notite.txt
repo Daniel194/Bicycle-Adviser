@@ -25,3 +25,9 @@
 Interogare Cum Exemplu : Cum problema_bicicleta este 'Verifica pinioane !'.
 
 Factor de probabilitate la intrebari: tocit fc 80.
+
+
+
+Apelarea Sistemului Expert in consolo prin Socket .
+
+/usr/local/sicstus/bin/sicstus -f -l /Users/daniellungu/Documents/Workspace/Java/Bicycle-Adviser/src/main/prolog/SistemExpert.pl --goal inceput. -a 5002
