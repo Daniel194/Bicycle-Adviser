@@ -1,7 +1,6 @@
 package com.bicycle.adviser.utility;
 
 
-import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PipedInputStream;
@@ -15,7 +14,8 @@ public class ReadMessage extends Thread {
     private ServerSocket servs;
     private volatile Socket s = null;
     private volatile PipedInputStream pis = null;
-    private Connection connection;
+    private String message;
+    private boolean done = false;
 
     public synchronized void setSocket(Socket s) {
         this.s = s;
@@ -41,10 +41,17 @@ public class ReadMessage extends Thread {
         return pis;
     }
 
+    public String getMessage() {
+        this.done = false;
+        return message;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
 
     public ReadMessage(Connection connection, ServerSocket servs) throws IOException {
         this.servs = servs;
-        this.connection = connection;
     }
 
     public void run() {
@@ -66,14 +73,9 @@ public class ReadMessage extends Thread {
                 str += (char) chr;
 
                 if (chr == '\n') {
-                    final String sirDeScris = str;
+                    this.done = true;
+                    message = str;
                     str = "";
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            // TODO
-                            //connection.getFereastra().getDebugTextArea().append(sirDeScris);
-                        }
-                    });
                 }
             }
         } catch (IOException ex) {

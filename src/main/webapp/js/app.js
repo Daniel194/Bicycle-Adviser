@@ -1,6 +1,6 @@
 var app = angular.module('app', [])
     .controller('appController', function ($scope, $http) {
-        var jsonUrl = "http://localhost:8080/ws/answer/daniel";
+        var jsonUrl = "http://localhost:8080/ws/answer/salut";
 
         $http.get(jsonUrl).success(
             function (data) {

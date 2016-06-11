@@ -12,7 +12,6 @@ public class SendMessage extends Thread {
     private volatile PipedOutputStream pos = null;
     private PipedInputStream pis;
     private OutputStream ostream;
-    private volatile boolean done = false;
 
     public final synchronized void setPipedOutputStream(PipedOutputStream pos) {
         this.pos = pos;
