@@ -103,9 +103,62 @@ executa([_|_]):- write('Comanda incorecta! '),nl.
 % scopuri_prin.
 % Predicatul de mai jos determina si afiseaza scopurile principale.
 scopuri_princ:- scop(Atr),determina(Atr), lista_fapte(Atr ,L), bubble_sort(L, [], S), afiseaza_scop(S), nume_director(Nume),
-                scire_rezultat_fisier(S,Nume), fail.
+                scire_rezultat_fisier(S,Nume), fisier_demonstratii(Dir),scire_demonstratii(Dir,S,1), fail.
 scopuri_princ:- \+ are_solutii, write('Nu exista solutii !'), nl.
 scopuri_princ.
+
+
+% scire_demonstratii(+Dir, + L, + Nr).
+% Predicatul de mai jos scrie demosntratiile pentru fiecare regula in directorul Dir.
+scire_demonstratii(_, [],_).
+scire_demonstratii(Dir, [el(av(Atr,Val),_)|T], Nr):- conversie(NrFis,Nr), atom_concat('/rezultat',NrFis,Fis), atom_concat(Fis,'.txt',Fisier),
+                                                     atom_concat(Dir,Fisier,Path), open(Path,append,Stream), scrie_demonstratie(Stream, av(Atr,Val)),
+                                                     close(Stream), Nr1 is Nr + 1, scire_demonstratii(Dir,T, Nr1).
+
+
+% scrie_demonstratie(+ Stream, + av(Atr,Val))
+% Predicatul de mai jos scire in stream o demonstratie deteminata de av(Atr,Val).
+scrie_demonstratie(Stream, Scop):- fapt(Scop,FC,Reguli), lista_float_int(Reguli,Reguli1), FC > 20,transformare(Scop,PG),
+	                               append(PG,[a,fost,derivat,cu, ajutorul, 'regulilor: '|Reguli1],LL), scrie_lista_stream(LL, Stream),
+	                               nl(Stream),afis_reguli_stream(Stream, Reguli), fail.
+scrie_demonstratie(_,_).
+
+% afis_reguli_stream(+ Stream, +L).
+% Predicatul de mai jos afiseaza regulile intr-un Stream.
+afis_reguli_stream(_,[]).
+afis_reguli_stream(Stream,[N|X]):- afis_regula_stream(Stream, N), premisele_stream(Stream ,N), afis_reguli_stream(Stream, X).
+
+
+% afis_regula_stream(+ Stream, + N)
+% Predicatul de mai jos afiseaza o singura regula in Stream.
+afis_regula_stream(Stream, N):- regula(N, premise(Lista_premise), concluzie(Scop,FC)),NN is integer(N), scrie_lista_stream(['regula  ',NN], Stream),
+                                scrie_lista_stream(['  Daca'], Stream), scrie_lista_premise_stream(Stream, Lista_premise),
+                                scrie_lista_stream(['  Atunci'], Stream), transformare(Scop,Scop_tr), append(['   '],Scop_tr,L1), FC1 is integer(FC),
+                                append(L1,[FC1],LL), scrie_lista_stream(LL, Stream), nl(Stream).
+
+
+% scrie_lista_premise_stream(+ Stream, +L).
+% Predicatul de mai jos afiseaza lista de premise.
+scrie_lista_premise_stream(_,[]).
+scrie_lista_premise_stream(Stream, [H|T]):- transformare(H,H_tr), write(Stream,'     '),scrie_lista_stream(H_tr, Stream),
+                                            scrie_lista_premise_stream(Stream, T).
+
+
+% premisele_stream(+ Stream, +N).
+% Predicatul de mai jos intoarce lista de premise N.
+premisele_stream(Stream, N):- regula(N, premise(Lista_premise), _), !, cum_premise_stream(Stream ,Lista_premise).
+
+
+% cum_premise_stream(+ Stream, +L).
+% Predicatul de mai jos demonstreaza lista de premise.
+cum_premise_stream(_, []).
+cum_premise_stream(Stream, [Scop|X]):- scrie_demonstratie(Stream, Scop), cum_premise_stream(Stream, X).
+
+
+% verifica_exista_fis_dem(Dir).
+% Predicatul de mai jos sterge directorul demonstratii si il creaza la loc si intorace calea catre acesta.
+fisier_demonstratii(Dir):- Dir = '/Users/daniellungu/Documents/Workspace/Java/Bicycle-Adviser/src/main/prolog/demonstratii',
+                           (directory_exists(Dir), delete_directory(Dir, [if_nonempty(delete)]); \+directory_exists(Dir)), make_directory(Dir).
 
 
 % nume_director(- Nume).
@@ -218,6 +271,10 @@ cum(_).
 % Predicatul de mai jos afiseaza regulile.
 afis_reguli([]).
 afis_reguli([N|X]):- afis_regula(N), premisele(N), afis_reguli(X).
+
+
+% afis_regula(+ N)
+% Predicatul de mai jos afiseaza o singura regula.
 afis_regula(N):- regula(N, premise(Lista_premise), concluzie(Scop,FC)),NN is integer(N), scrie_lista(['regula  ',NN]), scrie_lista(['  Daca']),
 	             scrie_lista_premise(Lista_premise), scrie_lista(['  Atunci']), transformare(Scop,Scop_tr), append(['   '],Scop_tr,L1),
 	             FC1 is integer(FC),append(L1,[FC1],LL), scrie_lista(LL),nl.
