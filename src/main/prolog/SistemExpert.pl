@@ -7,6 +7,7 @@
 :-use_module(library(system)).
 :-use_module(library(file_systems)).
 :-use_module(library(sockets)).
+:-use_module(library(system)).
 
 
 % Definirea operatorului not
@@ -31,6 +32,9 @@ not(P):-P,!,fail.
 not(_).
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INCERCARE DE COMUNICARE PRIN SOCKET %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 inceput:-prolog_flag(argv, [PortSocket|_]), atom_chars(PortSocket,LCifre), number_chars(Port,LCifre),
          socket_client_open(localhost: Port, Stream, [type(text)]), proceseaza_text_primit(Stream,0).
 
@@ -44,6 +48,9 @@ proceseaza_termen_citit(Stream, X + Y,C):- Rez is X+Y, write(Stream,Rez),nl(Stre
 proceseaza_termen_citit(Stream, X, _):- (X == end_of_file ; X == exit), close(Stream).
 proceseaza_termen_citit(Stream, Altceva,C):- write(Stream,'nu inteleg ce vrei sa spui: '),write(Stream,Altceva),nl(Stream), flush_output(Stream),
                                              C1 is C+1, proceseaza_text_primit(Stream,C1).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % scrie_lista(+L)
@@ -95,9 +102,48 @@ executa([_|_]):- write('Comanda incorecta! '),nl.
 
 % scopuri_prin.
 % Predicatul de mai jos determina si afiseaza scopurile principale.
-scopuri_princ:- scop(Atr),determina(Atr), lista_fapte(Atr ,L), bubble_sort(L, [], S), afiseaza_scop(S),fail.
+scopuri_princ:- scop(Atr),determina(Atr), lista_fapte(Atr ,L), bubble_sort(L, [], S), afiseaza_scop(S), nume_director(Nume),
+                scire_rezultat_fisier(S,Nume), fail.
 scopuri_princ:- \+ are_solutii, write('Nu exista solutii !'), nl.
 scopuri_princ.
+
+
+% nume_director(- Nume).
+% Predicatul de mai jos intoarce numele directorului in care se va scire rezultatele.
+nume_director(Nume):- datime(datime(An,Luna,Zi,Ora,Minut,Secunda)), conversie(AnA,An), conversie(LunaA,Luna), conversie(ZiA,Zi), conversie(OraA,Ora),
+                      conversie(MinutA,Minut), conversie(SecundaA,Secunda), atom_concat('_', AnA, An_A), atom_concat('_', LunaA, Luna_A),
+                      atom_concat('_',ZiA,Zi_A), atom_concat('_',OraA,Ora_A), atom_concat('_', MinutA, Minut_A), atom_concat('_',SecundaA,Secunda_A),
+                      atom_concat(An_A,Luna_A,AnLu), atom_concat(Zi_A,Ora_A, ZiOr), atom_concat(Minut_A,Secunda_A,MiSe),
+                      atom_concat('consultare',AnLu,CAnLu), atom_concat(ZiOr,MiSe,ZiOrMiSe), atom_concat(CAnLu,ZiOrMiSe, Fisier),
+                      atom_concat('/Users/daniellungu/Documents/Workspace/Java/Bicycle-Adviser/src/main/prolog/',Fisier,Nume),
+                      make_directory(Nume).
+
+
+% conversie(? At, ? Nr).
+% Predicatul de mai jos converteste un atom intr-un numar sau invers, un numar intr-un atom.
+conversie(At,Nr):- var(Nr), atom_chars(At,L), [H|_] = L, H \== +, number_chars(Nr,L).
+conversie(At,Nr):- var(Nr), atom_chars(At,L), [H|T] = L, H == +, number_chars(Nr,T).
+conversie(At,Nr):- var(At), number_chars(Nr, L), atom_chars(At,L).
+
+
+% scire_rezultat_fisier(+ L, + Nume)
+% Predicatul de mai jos scrie lista L in fisierul output.txt din directorul Nume.
+scire_rezultat_fisier([], _).
+scire_rezultat_fisier([el(av(Atr,Val),FC)|T],Nume):- atom_concat(Nume,'/output.txt',Fisier), open(Fisier,append,Stream), nl(Stream),
+                                                     scrie_scop_fisier(av(Atr,Val),FC,Stream), nl(Stream), close(Stream),
+                                                     scire_rezultat_fisier(T,Nume).
+
+
+% scrie_scop_fisier(+ av(Atr,Val),+ FC, + Stream)
+% Predicatul de mai jos scire scopul in stream-ul primit ca parametru.
+scrie_scop_fisier(av(Atr,Val),FC,Stream):- transformare(av(Atr,Val), X), scrie_lista_stream(X, Stream), write(Stream,'   factorul de certitudine este '),
+                                           FC1 is integer(FC), write(Stream, FC1).
+
+
+% scrie_lista_stream(+L, + Stream)
+% Predicatul de mai jos scrie lista de elemente L in stream-ul Stream.
+scrie_lista_stream([],Stream):-nl(Stream).
+scrie_lista_stream([H|T], Stream):- write(Stream, H), write(Stream,' '), scrie_lista_stream(T, Stream).
 
 
 % determina(+Atr).
