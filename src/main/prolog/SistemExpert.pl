@@ -123,6 +123,7 @@ scrie_demonstratie(Stream, Scop):- fapt(Scop,FC,Reguli), lista_float_int(Reguli,
 	                               nl(Stream),afis_reguli_stream(Stream, Reguli), fail.
 scrie_demonstratie(_,_).
 
+
 % afis_reguli_stream(+ Stream, +L).
 % Predicatul de mai jos afiseaza regulile intr-un Stream.
 afis_reguli_stream(_,[]).
@@ -262,7 +263,7 @@ cum([]):- write('Scop? '),nl, write('|:'),citeste_linie(Linie),nl,transformare(S
 cum(L):-  transformare(Scop,L),nl, cum(Scop).
 cum(not Scop):- fapt(Scop,FC,Reguli), lista_float_int(Reguli,Reguli1), FC < -20,transformare(not Scop,PG),
 	            append(PG,[a,fost,derivat,cu, ajutorul, 'regulilor: '|Reguli1],LL), scrie_lista(LL),nl,afis_reguli(Reguli),fail.
-cum(Scop):- fapt(Scop,FC,Reguli), lista_float_int(Reguli,Reguli1), FC > 20,transformare(Scop,PG),
+cum(Scop):- fapt(Scop,FC,Reguli), lista_float_int(Reguli,Reguli1), FC > 20, transformare(Scop,PG),
 	        append(PG,[a,fost,derivat,cu, ajutorul, 'regulilor: '|Reguli1],LL), scrie_lista(LL),nl,afis_reguli(Reguli), fail.
 cum(_).
 
@@ -561,6 +562,7 @@ caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,35,123,125]).
 % caractere_in_interiorul_unui_cuvant(+ C)
 % Predicatul de mai jos verifica daca C este o litera mare sau mica, un numar sau caracterele - sau _
 caractere_in_interiorul_unui_cuvant(C):- C>64,C<91;C>47,C<58; C==45;C==95;C>96,C<123.
+
 
 % caracter_numar(+ C).
 % Predicatul de mai jos verifica daca C este sau nu un numar.

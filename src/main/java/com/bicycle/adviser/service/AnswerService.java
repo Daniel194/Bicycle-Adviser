@@ -40,9 +40,6 @@ public class AnswerService {
             // Send message to Expert Sistem.
             conn.getSend().sendMessage(option);
 
-            // Waiting to receive the message from Expert System.
-            while (!conn.getRead().isDone()) ;
-
             // Read the message from Expert System.
             question = conn.getRead().getMessage();
 
