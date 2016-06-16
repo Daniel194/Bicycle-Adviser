@@ -5,31 +5,61 @@ import java.util.HashMap;
 
 public class Question {
 
-    private String question;
+    private int number;
 
-    private HashMap<String,String> options;
+    private String value;
+
+    private String message;
+
+    private HashMap<String, String> options;
 
     public Question() {
     }
 
-    public Question(String question, HashMap<String,String> options) {
-        this.question = question;
+    public Question(int number, String value, String question, HashMap<String, String> options) {
+        if (number > 0)
+            this.number = number;
+        else
+            this.number = 0;
+
+        this.value = value;
+        this.message = question;
         this.options = options;
     }
 
-    public String getQuestion() {
-        return question;
+    public int getNumber() {
+        return number;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setNumber(int number) {
+
+        if (number > 0)
+            this.number = number;
+        else
+            number = 0;
     }
 
-    public HashMap<String,String> getOptions() {
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public HashMap<String, String> getOptions() {
         return options;
     }
 
-    public void setOptions(HashMap<String,String> options) {
+    public void setOptions(HashMap<String, String> options) {
         this.options = options;
     }
 }

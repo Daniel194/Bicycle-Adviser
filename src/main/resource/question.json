@@ -1,0 +1,11 @@
+{
+  "number": 1,
+  "value": "scartait",
+  "message": "Unde scartaie bicicleta?",
+  "options": {
+    "fata": "Fata",
+    "spate": "Spate",
+    "central": "Central",
+    "nu_scartaie": "Nu scartaie"
+  }
+}
