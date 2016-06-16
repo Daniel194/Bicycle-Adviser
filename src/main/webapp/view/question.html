@@ -1,0 +1,7 @@
+<span>
+       {{question.number}}. {{question.message}}
+</span>
+<br>
+<span ng-repeat="(opValue, opLabel) in question.options">
+        <button ng-click="answer(opValue)">{{opLabel}}</button>
+</span>

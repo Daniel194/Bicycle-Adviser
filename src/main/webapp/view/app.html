@@ -6,13 +6,8 @@
 </head>
 <body>
 <div ng-controller="appController" class="main">
-    <span>
-       {{question.number}}. {{question.message}}
-    </span>
-    <br>
-    <span ng-repeat="(opValue, opLabel) in question.options">
-        <button ng-click="answer(opValue)">{{opLabel}}</button>
-    </span>
+    <div ng-include="'view/question.html'" ng-show="showQuestion"></div>
+    <div ng-include="'view/answer.html'" ng-show="! showQuestion"></div>
 </div>
 </body>
 <script src="js/angular.js"></script>
