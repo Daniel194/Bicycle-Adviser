@@ -1,11 +1,276 @@
-{
-  "number": 1,
-  "value": "scartait",
-  "message": "Unde scartaie bicicleta?",
-  "options": {
-    "fata": "Fata",
-    "spate": "Spate",
-    "central": "Central",
-    "nu_scartaie": "Nu scartaie"
+[
+  {
+    "number": 1,
+    "value": "scartait",
+    "message": "Unde scartaie bicicleta?",
+    "options": {
+      "fata": "Fata",
+      "spate": "Spate",
+      "central": "Central"
+    }
+  },
+  {
+    "number": 2,
+    "value": "descentrat",
+    "message": "Roata din spate este descentrata?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 3,
+    "value": "pinioane",
+    "message": "Ce aspect au pinioanele?",
+    "options": {
+      "uzate": "Uzate",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 4,
+    "value": "cauciuc",
+    "message": "In ce stare este cauciucul?",
+    "options": {
+      "tocit": "Tocit",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 5,
+    "value": "camera",
+    "message": "In ce stare este camera ta?",
+    "options": {
+      "sparta": "Sparta",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 6,
+    "value": "spite",
+    "message": "Cum sunt spitele?",
+    "options": {
+      "indoite": "Indoite",
+      "drepte": "Drepte"
+    }
+  },
+  {
+    "number": 7,
+    "value": "deraior",
+    "message": "In ce stare este deraiorul tau?",
+    "options": {
+      "stramb": "Stramb",
+      "drept": "Drept"
+    }
+  },
+  {
+    "number": 8,
+    "value": "ureche_deraior",
+    "message": "Este stramba urechea deraiorului?",
+    "options": {
+      "stramba": "Stramba",
+      "dreapta": "Dreapta"
+    }
+  },
+  {
+    "number": 9,
+    "value": "lant",
+    "message": "Ce aspect are lantul tau?",
+    "options": {
+      "curat": "Curat",
+      "murdar": "Murdar",
+      "ruginit": "Ruginit",
+      "intins": "Intins"
+    }
+  },
+  {
+    "number": 10,
+    "value": "tip_frana",
+    "message": "Ce tip de frana ai?",
+    "options": {
+      "disc": "Disc",
+      "saboti": "Saboti"
+    }
+  },
+  {
+    "number": 11,
+    "value": "frana_saboti_centrat",
+    "message": "Este frana centrata?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 12,
+    "value": "frana_saboti_tociti",
+    "message": "Sunt sabotii tai tociti?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 13,
+    "value": "frana_disc_stramb",
+    "message": "Este discul tau de frana stramb?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 14,
+    "value": "frana_disc_placute",
+    "message": "Sunt placutele tale de frana uzate?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 15,
+    "value": "tip_sa",
+    "message": "Ce tip de sa ai?",
+    "options": {
+      "fixa": "Fixa",
+      "pe_arcuri": "Pe Arcuri"
+    }
+  },
+  {
+    "number": 16,
+    "value": "tija_sa",
+    "message": "In ce stare este tija de la saua ta?",
+    "options": {
+      "unsa": "Unsa",
+      "Uscata": "Uscata"
+    }
+  },
+  {
+    "number": 17,
+    "value": "foaie",
+    "message": "In ce stare este foaia ta?",
+    "options": {
+      "uzata": "Uzata",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 18,
+    "value": "cadru",
+    "message": "In ce stare este cadrul tau?",
+    "options": {
+      "fisurat": "Fisurat",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 19,
+    "value": "verificat_butuc",
+    "message": "Ai verificat butucul sa fie ok?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 20,
+    "value": "rulmenti_butuc",
+    "message": "In ce stare sunt rulmentii de la butuc?",
+    "options": {
+      "sparti": "Sparti",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 21,
+    "value": "ax_butuc",
+    "message": "In ce stare este axul butucului pedalier?",
+    "options": {
+      "stramb": "stramb",
+      "drept": "drept"
+    }
+  },
+  {
+    "number": 22,
+    "value": "verificat_pedale",
+    "message": "Ai verificat pedalele sa fie ok?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 23,
+    "value": "rulmenti_pedale",
+    "message": "In ce stare sunt rulmentii de la pedale?",
+    "options": {
+      "sparti": "Sparti",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 24,
+    "value": "ax_pedale",
+    "message": "In ce stare este axul pedalelor?",
+    "options": {
+      "stramb": "Stramb",
+      "drept": "Drept"
+    }
+  },
+  {
+    "number": 25,
+    "value": "descentrat_fata",
+    "message": "Roata din fata este descentrata?",
+    "options": {
+      "da": "Da",
+      "nu": "Nu"
+    }
+  },
+  {
+    "number": 26,
+    "value": "tip_furca",
+    "message": "Ce tip de furca ai?",
+    "options": {
+      "fixa": "Fixa",
+      "hidraulica": "Hidraulica",
+      "pe_arcuri": "Pe Arcuri"
+    }
+  },
+  {
+    "number": 27,
+    "value": "stare_furca_fixa",
+    "message": "In ce stare este furca ta?",
+    "options": {
+      "dreapta": "Dreapta",
+      "indoita": "Indoita"
+    }
+  },
+  {
+    "number": 28,
+    "value": "stare_rulmenti_furca",
+    "message": "In ce stare este furca ta?",
+    "options": {
+      "deteriorati": "Deteriorati",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 29,
+    "value": "brate_furca",
+    "message": "In ce stare sunt bratele furcii tale?",
+    "options": {
+      "gripate": "Gripate",
+      "ok": "Ok"
+    }
+  },
+  {
+    "number": 30,
+    "value": "servisare_arcuri",
+    "message": "Cand ai verificat ultima data arcurile de la furca?",
+    "options": {
+      "sub_1an": "Sub 1 an",
+      "peste_1an": "Peste 1 an"
+    }
   }
-}
+]
