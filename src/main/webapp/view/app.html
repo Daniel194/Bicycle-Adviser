@@ -11,12 +11,8 @@
     </span>
     <br>
     <span ng-repeat="(opValue, opLabel) in question.options">
-        <input type="radio" name="options" ng-value="opValue">{{opLabel}}<br>
+        <button ng-click="answer(opValue)">{{opLabel}}</button>
     </span>
-    <br>
-    <div ng-include="getQuestion()">
-
-    </div>
 </div>
 </body>
 <script src="js/angular.js"></script>
