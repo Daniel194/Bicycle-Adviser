@@ -1,0 +1,481 @@
+[
+  {
+    "image": "6.jpg",
+    "sugestion": "Verifica pinioane!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "pinioane": "uzate"
+    }
+  },
+  {
+    "image": "7.jpg",
+    "sugestion": "Verifica rulmenti!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "pinioane": "uzate"
+    }
+  },
+  {
+    "image": "8.jpg",
+    "sugestion": "Spitele tale sunt indoite, si se pot rupe, verifica-le!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "spite": "indoite"
+    }
+  },
+  {
+    "image": "9.jpg",
+    "sugestion": "Cauciucul trebuie schimbat, este prea tocit!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "cauciuc": "tocit"
+    }
+  },
+  {
+    "image": "10.jpg",
+    "sugestion": "Camera ta este sparta, necesita petic, sau inlocuire.",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "cauciuc": "ok",
+      "camera": "sparta"
+    }
+  },
+  {
+    "image": "11.jpg",
+    "sugestion": "Deraiorul tau este stramb, trebuie indreptat!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "deraior": "stramb",
+      "cauciuc": "ok",
+      "spite": "drepte"
+    }
+  },
+  {
+    "image": "12.jpg",
+    "sugestion": "Urechea deraiorului este stramba, necesita inlocuire!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "stramba",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "13.jpg",
+    "sugestion": "Lantul tau trebuie curatat!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "cauciuc": "ok",
+      "lant": "murdar"
+    }
+  },
+  {
+    "image": "14.jpg",
+    "sugestion": "Lantul tau este prea intins (uzat) trebuie schimbat neaparat!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "murdar",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "15.jpg",
+    "sugestion": "Lantul tau este prea intins (uzat) trebuie schimbat neaparat!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "ruginit",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "16.jpg",
+    "sugestion": "Lantul tau este prea intins (uzat) trebuie schimbat neaparat!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "intins",
+      "cauciuc": "ok",
+      "camera": "ok"
+    }
+  },
+  {
+    "image": "17.jpg",
+    "sugestion": "Pana nu centrezi roata, nu iti poti centra si frana!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "fals"
+    }
+  },
+  {
+    "image": "18.jpg",
+    "sugestion": "Schimba-ti sabotii!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "adevarat",
+      "frana_saboti_tociti": "adevarat"
+    }
+  },
+  {
+    "image": "19.jpg",
+    "sugestion": "Centreaza, sau schimba discul!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "adevarat"
+    }
+  },
+  {
+    "image": "20.jpg",
+    "sugestion": "Schimba-ti placutele!",
+    "rules": {
+      "problema_roata_spate": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "fals",
+      "frana_disc_placute": "adevarat"
+    }
+  },
+  {
+    "image": "22.jpg",
+    "sugestion": "Centreaza, sau schimba discul!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "pinioane": "uzate"
+    }
+  },
+  {
+    "image": "23.jpg",
+    "sugestion": "Verifica rulmenti!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "pinioane": "uzate"
+    }
+  },
+  {
+    "image": "24.jpg",
+    "sugestion": "Cauciucul trebuie schimbat, este prea tocit!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "cauciuc": "tocit"
+    }
+  },
+  {
+    "image": "25.jpg",
+    "sugestion": "Camera ta este sparta, necesita petic, sau inlocuire.",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "cauciuc": "ok",
+      "camera": "sparta"
+    }
+  },
+  {
+    "image": "26.jpg",
+    "sugestion": "Deraiorul tau este stramb, trebuie indreptat!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "deraior": "stramb",
+      "cauciuc": "ok",
+      "spite": "drepte"
+    }
+  },
+  {
+    "image": "27.jpg",
+    "sugestion": "Urechea deraiorului este stramba, necesita inlocuire!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "stramba",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "28.jpg",
+    "sugestion": "Lantul tau trebuie curatat!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "murdar",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "29.jpg",
+    "sugestion": "Lantul tau este prea intins (uzat) trebuie schimbat neaparat!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "murdar",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "30.jpg",
+    "sugestion": "Lantul tau trebuie schimbat urgent!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "ruginit",
+      "cauciuc": "ok"
+    }
+  },
+  {
+    "image": "31.jpg",
+    "sugestion": "Lantul tau este prea intins (uzat) trebuie schimbat neaparat!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "deraior": "drept",
+      "ureche_deraior": "dreapta",
+      "lant": "intins",
+      "cauciuc": "ok",
+      "camera": "ok"
+    }
+  },
+  {
+    "image": "32.jpg",
+    "sugestion": "Centraza-ti franele!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "fals"
+    }
+  },
+  {
+    "image": "33.jpg",
+    "sugestion": "Schimba-ti sabotii!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "tip_frana": "disc",
+      "frana_saboti_centrat": "adevarat"
+    }
+  },
+  {
+    "image": "34.jpg",
+    "sugestion": "Centreaza, sau schimba discul!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "fals",
+      "frana_disc_placute": "adevarat"
+    }
+  },
+  {
+    "image": "35.jpg",
+    "sugestion": "Centreaza, sau schimba discul!",
+    "rules": {
+      "problema_roata_spate_centrat": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "fals",
+      "frana_disc_placute": "adevarat"
+    }
+  },
+  {
+    "image": "36.jpg",
+    "sugestion": "Arcurile tale sunt uzate!",
+    "rules": {
+      "loc_scartait": "central",
+      "tip_sa": "pe_arcuri"
+    }
+  },
+  {
+    "image": "37.jpg",
+    "sugestion": "Unge tija de la sa!",
+    "rules": {
+      "loc_scartait": "central",
+      "tija_sa": "uscata"
+    }
+  },
+  {
+    "image": "38.jpg",
+    "sugestion": "Foile tale sunt uzate si trebuiesc inlocuite!",
+    "rules": {
+      "loc_scartait": "central",
+      "foaie": "uzata"
+    }
+  },
+  {
+    "image": "39.jpg",
+    "sugestion": "Cadrul tau este fisurat, problema este grava, si ai nevoie de un cadru nou!",
+    "rules": {
+      "loc_scartait": "central",
+      "cadru": "fisurat"
+    }
+  },
+  {
+    "image": "41.jpg",
+    "sugestion": "Schimba rulmentii butucului!",
+    "rules": {
+      "problema_butuc": "adevarat",
+      "rulmenti_butuc": "sparti"
+    }
+  },
+  {
+    "image": "42.jpg",
+    "sugestion": "Trebuie inlocuit axul butucului pedalier!",
+    "rules": {
+      "problema_butuc": "adevarat",
+      "ax_butuc": "stramb"
+    }
+  },
+  {
+    "image": "44.jpg",
+    "sugestion": "Schimba rulmentii pedalelor!",
+    "rules": {
+      "problema_pedale": "adevarat",
+      "rulmenti_pedale": "sparti"
+    }
+  },
+  {
+    "image": "45.jpg",
+    "sugestion": "Trebuie inlocuit axul pedalelor!",
+    "rules": {
+      "problema_pedale": "adevarat",
+      "ax_pedale": "stramb"
+    }
+  },
+  {
+    "image": "47.jpg",
+    "sugestion": "Spitele tale sunt indoite, si se pot rupe, verifica-le!",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "spite": "indoite"
+    }
+  },
+  {
+    "image": "48.jpg",
+    "sugestion": "Cauciucul trebuie schimbat, este prea tocit!",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "cauciuc": "tocit"
+    }
+  },
+  {
+    "image": "49.jpg",
+    "sugestion": "Camera ta este sparta, necesita petic, sau inlocuire.",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "cauciuc": "ok",
+      "camera": "sparta"
+    }
+  },
+  {
+    "image": "50.jpg",
+    "sugestion": "Nu iti poti centra frana, pana nu centrezi roata!",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "fals"
+    }
+  },
+  {
+    "image": "51.jpg",
+    "sugestion": "Schimba-ti sabotii!",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "adevarat",
+      "frana_saboti_tociti": "adevarat"
+    }
+  },
+  {
+    "image": "52.jpg",
+    "sugestion": "Indreapta discul de la frana!",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "adevarat"
+    }
+  },
+  {
+    "image": "53.jpg",
+    "sugestion": "Schimba-ti placutele!",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "fals",
+      "frana_disc_placute": "adevarat"
+    }
+  },
+  {
+    "image": "55.jpg",
+    "sugestion": "Centreza-ti frana",
+    "rules": {
+      "problema_roata_fata": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "fals"
+    }
+  },
+  {
+    "image": "56.jpg",
+    "sugestion": "Schimba franda de la saboti",
+    "rules": {
+      "problema_roata_fata_centrat": "adevarat",
+      "tip_frana": "saboti",
+      "frana_saboti_centrat": "adevarat",
+      "frana_saboti_tociti": "adevarat"
+    }
+  },
+  {
+    "image": "57.jpg",
+    "sugestion": "Centreaza, sau schimba discul!",
+    "rules": {
+      "problema_roata_fata_centrat": "adevarat",
+      "tip_frana": "disc",
+      "frana_saboti_centrat": "adevarat",
+      "frana_disc_stramb": "adevarat"
+    }
+  },
+  {
+    "image": "58.jpg",
+    "sugestion": "Schimba-ti placutele!",
+    "rules": {
+      "problema_roata_fata_centrat": "adevarat",
+      "tip_frana": "disc",
+      "frana_disc_stramb": "fals",
+      "frana_disc_placute": "adevarat"
+    }
+  },
+  {
+    "image": "59.jpg",
+    "sugestion": "Furca ta este lovita, tebuie schimbata!",
+    "rules": {
+      "problema_roata_fata_centrat": "adevarat",
+      "tip_furca": "fixa",
+      "stare_furca_fixa": "indoite"
+    }
+  },
+  {
+    "image": "63.jpg",
+    "sugestion": "Rulmentii de la furca necesita inlocuire!",
+    "rules": {
+      "problema_rulmenti": "adevarat",
+      "stare_rulmenti_furca": "deteriorati"
+    }
+  },
+  {
+    "image": "65.jpg",
+    "sugestion": "Arcurile tale necesita o perioada de mentenanta!",
+    "rules": {
+      "problema_furca": "adevarat",
+      "servisare_arcuri": "peste_1an"
+    }
+  },
+  {
+    "image": "67.jpg",
+    "sugestion": "Trebuie inlocuit uleiul din furca!",
+    "rules": {
+      "problema_furca_hidraulica": "adevarat",
+      "servisare_hidraulica": "peste_1an"
+    }
+  }
+]
