@@ -1,11 +1,11 @@
-<span ng-show="answers.length > 0"  ng-repeat="answer in answers">
+<span ng-show="answers.length > 0" ng-repeat="answer in answers">
     <h3>{{answer.sugestion}}</h3>
     <img ng-src="{{answer.image}}">
     <hr ng-show="$index < answers.length-1">
 </span>
-<span ng-show="answers.length == 0">
+<div class="alert alert-danger" ng-show="answers.length == 0">
     <h3>Din pacate nu am gasit nici o solutie !</h3>
-</span>
+</div>
 <div class="bottom">
     <br>
 </div>
