@@ -1,4 +1,22 @@
-.main{
+body {
+    background-color: #C0C0C0;
+}
+
+.main {
     text-align: center;
     margin-top: 50px;
+    background-color: #FFFFFF;
+}
+
+.main-column{
+    background-color: #FFFFFF;
+}
+
+.btn-answer {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bottom{
+    margin-bottom: 50px;
 }
