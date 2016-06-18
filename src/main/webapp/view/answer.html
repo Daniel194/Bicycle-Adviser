@@ -1,4 +1,7 @@
-<span ng-repeat="answer in answers">
+<span ng-show="answers.length > 0"  ng-repeat="answer in answers">
     <p>{{answer.sugestion}}</p>
     <img ng-src="{{answer.image}}">
+</span>
+<span ng-show="answers.length == 0">
+    <h3>Din pacate nu am gasit nici o solutie !</h3>
 </span>

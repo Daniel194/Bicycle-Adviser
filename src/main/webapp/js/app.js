@@ -4,7 +4,7 @@ var app = angular.module('app', [])
         var urlAnswer = "http://localhost:8080/ws/answer";
         var count = 0;
         var questions = [];
-        var responses = [];
+        var responses = {};
         $scope.showQuestion = true;
 
         $http.get(urlQuestion).success(
@@ -15,7 +15,7 @@ var app = angular.module('app', [])
         );
 
         $scope.answer = function (answer) {
-            responses.push({"value": questions[count].value, "answer": answer});
+            responses[questions[count].value] = answer;
 
             if (count < questions.length - 1)
                 $scope.question = questions[++count];
@@ -23,7 +23,7 @@ var app = angular.module('app', [])
                 sendResponse(responses);
 
         };
-        
+
         function sendResponse(responses) {
             $scope.showQuestion = false;
 
