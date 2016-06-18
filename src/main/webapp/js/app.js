@@ -1,5 +1,5 @@
 var app = angular.module('app', [])
-    .controller('appController', function ($scope, $http) {
+    .controller('appController', function ($scope, $http, $window) {
         var urlQuestion = "http://localhost:8080/ws/question/all";
         var urlAnswer = "http://localhost:8080/ws/answer";
         var count = 0;
@@ -24,6 +24,10 @@ var app = angular.module('app', [])
 
         };
 
+        $scope.reconsult = function () {
+            $window.location.reload();
+        };
+
         function sendResponse(responses) {
             $scope.showQuestion = false;
 
@@ -32,6 +36,5 @@ var app = angular.module('app', [])
                     $scope.answers = data;
                 }
             );
-        }
-
+        };
     });
